@@ -1,5 +1,4 @@
-{
-  "data": [
+[
     {
       "codigo_geometria": "001",
       "zona_basica_salud": "Abrantes",
@@ -68715,6 +68714,4 @@
       "tasa_incidencia_acumulada_P60mas_ultimos_14dias": 201.32,
       "casos_confirmados_P60mas_ultimos_14dias": 7,
       "fecha_informe": "2022/04/05 11:34:00"
-    }
-  ]
-}
+    }]
