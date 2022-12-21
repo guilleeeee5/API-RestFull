@@ -26,7 +26,7 @@ public class LeerJson {
             }
 
             // convert JSON array to list of users
-            listaJSON = new Gson().fromJson(reader, new TypeToken<List<ZonaBasicaSalud>>() {}.getType());
+            listaJSON = new Gson().fromJson(reader, new TypeToken<ArrayList<ZonaBasicaSalud>>() {}.getType());
             System.out.println("FICHERO JSON1 LEIDO CORRECTAMENTE");
 
             // close reader
@@ -51,13 +51,13 @@ public class LeerJson {
             // create a reader
             Reader reader = null;
             try {
-                reader = Files.newBufferedReader(Paths.get("Covid19-TIA_ZonasBásicasSalud.json"));
+                reader = Files.newBufferedReader(Paths.get("Covid19-TIA_ZonasBásicasSalud_Mayores60.json"));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
             // convert JSON array to list of users
-            listaJSON = new Gson().fromJson(reader, new TypeToken<List<ZonaBasicaSaludMayores60>>() {}.getType());
+            listaJSON = new Gson().fromJson(reader, new TypeToken<ArrayList<ZonaBasicaSaludMayores60>>() {}.getType());
             System.out.println("FICHERO JSON60 LEIDO CORRECTAMENTE");
 
             // close reader

@@ -9,9 +9,9 @@ public class ZonaBasicaSalud
     private float tasa_incidencia_acumulada_ultimos_14dias;
     private float tasa_incidencia_acumulada_total;
     private int casos_confirmados_totales;
-    private Date fecha_informe;
+    private String fecha_informe;
 
-    public ZonaBasicaSalud(String codigo_geometria, String zona_basica_salud, float tasa_incidencia_acumulada_ultimos_14dias, float tasa_incidencia_acumulada_total, int casos_confirmados_totales, Date fecha_informe) {
+    public ZonaBasicaSalud(String codigo_geometria, String zona_basica_salud, float tasa_incidencia_acumulada_ultimos_14dias, float tasa_incidencia_acumulada_total, int casos_confirmados_totales, String fecha_informe) {
         this.codigo_geometria = codigo_geometria;
         this.zona_basica_salud = zona_basica_salud;
         this.tasa_incidencia_acumulada_ultimos_14dias = tasa_incidencia_acumulada_ultimos_14dias;
@@ -44,7 +44,7 @@ public class ZonaBasicaSalud
         this.casos_confirmados_totales = casos_confirmados_totales;
     }
 
-    public void setFecha_informe(Date fecha_informe) {
+    public void setFecha_informe(String fecha_informe) {
         this.fecha_informe = fecha_informe;
     }
 
@@ -68,7 +68,7 @@ public class ZonaBasicaSalud
         return casos_confirmados_totales;
     }
 
-    public Date getFecha_informe() {
+    public String getFecha_informe() {
         return fecha_informe;
     }
 }
