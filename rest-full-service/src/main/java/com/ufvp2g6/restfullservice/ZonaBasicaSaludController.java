@@ -21,5 +21,12 @@ public class ZonaBasicaSaludController {
         return lista;
     }
 
+    @GetMapping("/ZonaBasicaSaludMayores60")
+    public ArrayList<ZonaBasicaSaludMayores60> zonas60(){
+        LeerJson reader = new LeerJson();
+        ArrayList<ZonaBasicaSaludMayores60> lista = reader.LeerFicheroJson60();
+        return lista;
+    }
+
 
 }
