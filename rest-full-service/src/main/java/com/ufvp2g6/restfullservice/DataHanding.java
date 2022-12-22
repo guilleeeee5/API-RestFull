@@ -17,4 +17,8 @@ public class DataHanding {
         }
         return aux;
     }
+
+    public ZonaBasicaSaludMayores60 getZBSM60info(String ID){
+        
+    }
 }
