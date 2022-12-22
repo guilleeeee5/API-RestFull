@@ -19,6 +19,16 @@ public class DataHanding {
     }
 
     public ZonaBasicaSaludMayores60 getZBSM60info(String ID){
-        
+        ZonaBasicaSaludMayores60 aux = null;
+        LeerJson reader = new LeerJson();
+
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+
+        for(ZonaBasicaSaludMayores60 i : listaAux){
+            if(i.getCodigo_geometria().equals(ID)){
+                aux = i;
+            }
+        }
+        return aux;
     }
 }
