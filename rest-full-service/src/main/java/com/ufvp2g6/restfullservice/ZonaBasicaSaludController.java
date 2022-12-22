@@ -28,8 +28,8 @@ public class ZonaBasicaSaludController {
         return lista;
     }
 
-    @GetMapping("/mostrar")
-    public ZonaBasicaSalud mostrarInfoPorID(){
+    @GetMapping("/ZonaBasicaSalud/{codigo_geometria}")
+    public ResponseEntity<ZonaBasicaSalud> getByID(){
 
     }
 
