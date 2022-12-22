@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding ="UTF-8" ?>
+<!DOCTYPE data
+[
+    <!ELEMENT data (codigo_geometria,zona_basica_salud,tasa_incidencia_acumulada_P60mas_ultimos_14dias,casos_confirmados_P60mas_ultimos_14dias,fecha_informe)>
+    <!ELEMENT codigo_geometria (#PCDATA)>
+    <!ELEMENT zona_basica_salud (#PCDATA)>
+    <!ELEMENT tasa_incidencia_acumulada_P60mas_ultimos_14dias (#PCDATA)>
+    <!ELEMENT casos_confirmados_P60mas_ultimos_14dias (#PCDATA)>
+    <!ELEMENT fecha_informe (#PCDATA)>
+    
+]>
+    <data>
+        <codigo_geometria></codigo_geometria>
+        <zona_basica_salud></zona_basica_salud>
+        <tasa_incidencia_acumulada_P60mas_ultimos_14dias></tasa_incidencia_acumulada_P60mas_ultimos_14dias>
+        <casos_confirmados_P60mas_ultimos_14dias></casos_confirmados_P60mas_ultimos_14dias>
+        <fecha_informe></fecha_informe>
+    </data>
