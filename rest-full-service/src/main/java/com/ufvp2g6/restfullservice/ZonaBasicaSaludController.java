@@ -36,4 +36,8 @@ public class ZonaBasicaSaludController {
 
            return new ResponseEntity<>(zonaBasicaSalud, HttpStatus.OK);
     }
+    @GetMapping("/ZonaBasicaSaludMayores60/{codigo_geometria}")
+    public ResponseEntity<ZonaBasicaSaludMayores60> getByIDmayores60(@PathVariable String codigo_geometria){
+        
+    }
 }
