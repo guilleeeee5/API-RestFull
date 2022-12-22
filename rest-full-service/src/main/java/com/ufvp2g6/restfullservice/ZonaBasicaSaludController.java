@@ -38,6 +38,8 @@ public class ZonaBasicaSaludController {
     }
     @GetMapping("/ZonaBasicaSaludMayores60/{codigo_geometria}")
     public ResponseEntity<ZonaBasicaSaludMayores60> getByIDmayores60(@PathVariable String codigo_geometria){
-        
+        DataHanding dataHanding = new DataHanding();
+        ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60 = dataHanding.getZBSM60info(codigo_geometria);
+        return new ResponseEntity<>(zonaBasicaSaludMayores60, HttpStatus.OK);
     }
 }
