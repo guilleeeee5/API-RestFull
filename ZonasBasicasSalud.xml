@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding ="UTF-8" ?>
-<!DOCTYPE note
+<!DOCTYPE data
 [
-    <!ELEMENT data (codigo_geometria,zona_basica_salud,tasa_incidencia_acumulada_ultimos_14dias,tasa_incidencia_acumulada_total,casos_confirmados_totales,fecha_informe,casos_confirmados_ultimos_14dias)>
+    <!ELEMENT data (codigo_geometria,zona_basica_salud,tasa_incidencia_acumulada_ultimos_14dias,tasa_incidencia_acumulada_total,casos_confirmados_totales,casos_confirmados_ultimos_14dias,fecha_informe)>
     <!ELEMENT codigo_geometria (#PCDATA)>
     <!ELEMENT zona_basica_salud (#PCDATA)>
     <!ELEMENT tasa_incidencia_acumulada_ultimos_14dias (#PCDATA)>
