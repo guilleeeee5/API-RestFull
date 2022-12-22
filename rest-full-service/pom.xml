@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ufvp2g6</groupId>
 	<artifactId>rest-full-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>rest-full-service</name>
 	<description>Practica 2 </description>
 	<properties>
