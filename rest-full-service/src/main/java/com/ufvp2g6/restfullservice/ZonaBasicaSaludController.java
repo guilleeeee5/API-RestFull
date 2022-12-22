@@ -28,5 +28,9 @@ public class ZonaBasicaSaludController {
         return lista;
     }
 
+    @GetMapping("/mostrar")
+    public ZonaBasicaSalud mostrarInfoPorID(){
+
+    }
 
 }
