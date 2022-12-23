@@ -29,6 +29,12 @@ public class ZonaBasicaSalud
     {
     }
 
+    public ZonaBasicaSalud(String codigo_geometria, String fecha_informe) {
+        super();
+        this.codigo_geometria = codigo_geometria;
+        this.fecha_informe = fecha_informe;
+    }
+
     public void setCodigo_geometria(String codigo_geometria) {
         this.codigo_geometria = codigo_geometria;
     }
