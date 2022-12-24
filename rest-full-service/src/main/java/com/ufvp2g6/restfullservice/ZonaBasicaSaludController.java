@@ -47,7 +47,8 @@ public class ZonaBasicaSaludController {
     public ArrayList<ZonaBasicaSalud> actualizar(@RequestBody ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
         ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(ZBS);
-
+        EscribirJSON escribirJSON = new EscribirJSON();
+        escribirJSON.escribirZBS(lista);
         return lista;
     }
 
@@ -55,7 +56,8 @@ public class ZonaBasicaSaludController {
     public ArrayList<ZonaBasicaSaludMayores60> actualizar60(@RequestBody ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
         ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(ZBS);
-
+        EscribirJSON escribirJSON = new EscribirJSON();
+        escribirJSON.escribirZBSMas60(lista);
         return lista;
     }
 }
