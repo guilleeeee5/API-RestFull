@@ -34,38 +34,69 @@ public class DataHanding {
         return aux;
     }
 
-    public ArrayList<ZonaBasicaSalud> ActualizarZBS(String ID, String Fecha, ZonaBasicaSalud Nuevo) throws ParseException {
+    public ArrayList<ZonaBasicaSalud> ActualizarZBS(ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
         LeerJson reader = new LeerJson();
         ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
-
         for(ZonaBasicaSalud i : listaAux){
-            if (i.getCodigo_geometria().equals(ID) && i.getFechaFinal().toString().equals(Fecha)){
-                i.setZona_basica_salud(Nuevo.getZona_basica_salud());
-                i.setCasos_confirmados_ultimos_14dias(Nuevo.getCasos_confirmados_ultimos_14dias());
-                i.setTasa_incidencia_acumulada_total(Nuevo.getTasa_incidencia_acumulada_total());
-                i.setCasos_confirmados_totales(Nuevo.getCasos_confirmados_totales());
-                i.setFecha_informe(Nuevo.getFecha_informe());
-                i.setFechaFinal(Nuevo.getFecha_informe());
+            if (CompararObjetos(i, ZBS.get(0))){
+                i.setZona_basica_salud(ZBS.get(1).getZona_basica_salud());
+                i.setCasos_confirmados_ultimos_14dias(ZBS.get(1).getCasos_confirmados_ultimos_14dias());
+                i.setTasa_incidencia_acumulada_total(ZBS.get(1).getTasa_incidencia_acumulada_total());
+                i.setCasos_confirmados_totales(ZBS.get(1).getCasos_confirmados_totales());
+                i.setFecha_informe(ZBS.get(1).getFecha_informe());
             }
         }
 
         return listaAux;
     }
 
-    public ArrayList<ZonaBasicaSaludMayores60> ActualizarZBS60(String ID, String Fecha, ZonaBasicaSaludMayores60 Nuevo) throws ParseException {
+    public ArrayList<ZonaBasicaSaludMayores60> ActualizarZBS60(ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
         LeerJson reader = new LeerJson();
         ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
 
         for(ZonaBasicaSaludMayores60 i : listaAux){
-            if (i.getCodigo_geometria().equals(ID) && i.getFechaFinal().toString().equals(Fecha)){
-                i.setZona_basica_salud(Nuevo.getZona_basica_salud());
-                i.setTasa_incidencia_acumulada_P60mas_ultimos_14dias(Nuevo.getTasa_incidencia_acumulada_P60mas_ultimos_14dias());
-                i.setCasos_confirmados_P60mas_ultimos_14dias(Nuevo.getCasos_confirmados_P60mas_ultimos_14dias());
-                i.setFecha_informe(Nuevo.getFecha_informe());
-                i.setFechaFinal(Nuevo.getFecha_informe());
+            if (CompararObjetos60(i, ZBS.get(0))){
+                i.setZona_basica_salud(ZBS.get(1).getZona_basica_salud());
+                i.setTasa_incidencia_acumulada_P60mas_ultimos_14dias(ZBS.get(1).getTasa_incidencia_acumulada_P60mas_ultimos_14dias());
+                i.setCasos_confirmados_P60mas_ultimos_14dias(ZBS.get(1).getCasos_confirmados_P60mas_ultimos_14dias());
+                i.setFecha_informe(ZBS.get(1).getFecha_informe());
             }
         }
 
         return listaAux;
     }
+
+    public boolean CompararObjetos(ZonaBasicaSalud Obj1, ZonaBasicaSalud Obj2){
+        if(Obj1.getCodigo_geometria().equals(Obj2.getCodigo_geometria())){
+            if(Obj1.getZona_basica_salud().equals((Obj2.getZona_basica_salud()))){
+                if(Obj1.getCasos_confirmados_ultimos_14dias() == Obj2.getCasos_confirmados_ultimos_14dias()){
+                    if(Obj1.getTasa_incidencia_acumulada_total() == Obj2.getTasa_incidencia_acumulada_total()){
+                        if(Obj1.getFecha_informe().equals(Obj2.getFecha_informe())){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean CompararObjetos60(ZonaBasicaSaludMayores60 Obj1, ZonaBasicaSaludMayores60 Obj2){
+        if(Obj1.getCodigo_geometria().equals(Obj2.getCodigo_geometria())){
+            if(Obj1.getZona_basica_salud().equals((Obj2.getZona_basica_salud()))){
+                if(Obj1.getCasos_confirmados_P60mas_ultimos_14dias() == Obj2.getCasos_confirmados_P60mas_ultimos_14dias()){
+                    if(Obj1.getTasa_incidencia_acumulada_P60mas_ultimos_14dias() == Obj2.getTasa_incidencia_acumulada_P60mas_ultimos_14dias()){
+                        if(Obj1.getFecha_informe().equals(Obj2.getFecha_informe())){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
 }
+
+

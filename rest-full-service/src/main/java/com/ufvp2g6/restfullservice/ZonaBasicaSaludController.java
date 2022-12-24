@@ -43,18 +43,18 @@ public class ZonaBasicaSaludController {
         return new ResponseEntity<>(zonaBasicaSaludMayores60, HttpStatus.OK);
     }
 
-    @PutMapping("ZonaBasicaSalud/{codigo_geometria}/{fechaFinal}")
-    public ArrayList<ZonaBasicaSalud> actualizar(@PathVariable("codigo_geometria") String codigo_geometria, @PathVariable("fechaFinal") String fechaFinal, @RequestBody ZonaBasicaSalud ZBS) throws ParseException {
+    @PutMapping("/ZonaBasicaSalud")
+    public ArrayList<ZonaBasicaSalud> actualizar(@RequestBody ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
-        ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(codigo_geometria, fechaFinal, ZBS);
+        ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(ZBS);
 
         return lista;
     }
 
-    @PutMapping("ZonaBasicaSaludMayores60/{codigo_geometria}/{fechaFinal}")
-    public ArrayList<ZonaBasicaSaludMayores60> actualizar(@PathVariable("codigo_geometria") String codigo_geometria, @PathVariable("fechaFinal") String fechaFinal, @RequestBody ZonaBasicaSaludMayores60 ZBS) throws ParseException {
+    @PutMapping("/ZonaBasicaSaludMayores60")
+    public ArrayList<ZonaBasicaSaludMayores60> actualizar60(@RequestBody ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
-        ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(codigo_geometria, fechaFinal, ZBS);
+        ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(ZBS);
 
         return lista;
     }
