@@ -27,10 +27,10 @@ public class LeerJson {
             // convert JSON array to list of users
             listaJSON = new Gson().fromJson(reader, new TypeToken<ArrayList<ZonaBasicaSalud>>() {}.getType());
             System.out.println("FICHERO Covid19-TIA_ZonasBásicasSalud.json LEIDO CORRECTAMENTE");
-            for(int i = 0; i < listaJSON.size(); i++)
+            /*for(int i = 0; i < listaJSON.size(); i++)
             {
                 listaJSON.get(i).setFechaFinal(listaJSON.get(i).getFecha_informe());
-            }
+            }*/
 
             // close reader
             try {
@@ -62,10 +62,10 @@ public class LeerJson {
             // convert JSON array to list of users
             listaJSON = new Gson().fromJson(reader, new TypeToken<ArrayList<ZonaBasicaSaludMayores60>>() {}.getType());
             System.out.println("FICHERO Covid19-TIA_ZonasBásicasSalud_Mayores60.json LEIDO CORRECTAMENTE");
-            for(int i = 0; i < listaJSON.size(); i++)
+            /*for(int i = 0; i < listaJSON.size(); i++)
             {
                 listaJSON.get(i).setFechaFinal(listaJSON.get(i).getFecha_informe());
-            }
+            }*/
 
             // close reader
             try {

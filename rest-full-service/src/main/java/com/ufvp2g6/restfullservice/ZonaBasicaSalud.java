@@ -13,7 +13,7 @@ public class ZonaBasicaSalud
     private int casos_confirmados_totales;
     private int casos_confirmados_ultimos_14dias;
     private String fecha_informe;
-    private Date fechaFinal;
+    //private Date fechaFinal;
 
     public ZonaBasicaSalud(String codigo_geometria, String zona_basica_salud, float tasa_incidencia_acumulada_ultimos_14dias, float tasa_incidencia_acumulada_total, int casos_confirmados_totales, int casos_confirmados_ultimos_14dias, String fecha_informe) throws ParseException {
         this.codigo_geometria = codigo_geometria;
@@ -27,6 +27,12 @@ public class ZonaBasicaSalud
 
     public ZonaBasicaSalud()
     {
+    }
+
+    public ZonaBasicaSalud(String codigo_geometria, String fecha_informe) {
+        super();
+        this.codigo_geometria = codigo_geometria;
+        this.fecha_informe = fecha_informe;
     }
 
     public void setCodigo_geometria(String codigo_geometria) {
@@ -53,7 +59,7 @@ public class ZonaBasicaSalud
         this.fecha_informe = fecha_informe;
     }
 
-    public void setFechaFinal(String fecha_informe) throws ParseException {
+    /*public void setFechaFinal(String fecha_informe) throws ParseException {
         fecha_informe = fecha_informe.replace("/", "-");
         SimpleDateFormat Formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date d = Formato.parse(fecha_informe);
@@ -61,7 +67,7 @@ public class ZonaBasicaSalud
         fecha_informe = Formato.format(d);
         this.fechaFinal = Formato.parse(fecha_informe);
         //System.out.println(Formato.format(fechaFinal));
-    }
+    }*/
 
     public int getCasos_confirmados_ultimos_14dias() {
         return casos_confirmados_ultimos_14dias;
@@ -94,4 +100,8 @@ public class ZonaBasicaSalud
     public String getFecha_informe() {
         return fecha_informe;
     }
+
+    /*public Date getFechaFinal() {
+        return fechaFinal;
+    }*/
 }
