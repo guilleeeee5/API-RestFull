@@ -74,4 +74,9 @@ public class ZonaBasicaSaludMayores60
     public String getFecha_informe() {
         return fecha_informe;
     }
+
+    public Date getFechaFinal() {
+        return fechaFinal;
+    }
+
 }

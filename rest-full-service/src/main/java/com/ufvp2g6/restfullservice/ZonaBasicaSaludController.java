@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,12 +43,18 @@ public class ZonaBasicaSaludController {
         return new ResponseEntity<>(zonaBasicaSaludMayores60, HttpStatus.OK);
     }
 
-    @PutMapping("/{codigo_geometria}/{fecha_informe}")
-    public ArrayList<ZonaBasicaSalud> actualizar(@PathVariable("codigo_geometria") String codigo_geometria, @PathVariable("fecha_informe") String fecha_informe, @RequestBody ZonaBasicaSalud ZBS) {
+    @PutMapping("ZonaBasicaSalud/{codigo_geometria}/{fechaFinal}")
+    public ArrayList<ZonaBasicaSalud> actualizar(@PathVariable("codigo_geometria") String codigo_geometria, @PathVariable("fechaFinal") String fechaFinal, @RequestBody ZonaBasicaSalud ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
-        LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSalud> lista = reader.LeerFicheroJson1();
-        lista = dataHanding.ActualizarZBS(codigo_geometria, fecha_informe, ZBS);
+        ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(codigo_geometria, fechaFinal, ZBS);
+
+        return lista;
+    }
+
+    @PutMapping("ZonaBasicaSaludMayores60/{codigo_geometria}/{fechaFinal}")
+    public ArrayList<ZonaBasicaSaludMayores60> actualizar(@PathVariable("codigo_geometria") String codigo_geometria, @PathVariable("fechaFinal") String fechaFinal, @RequestBody ZonaBasicaSaludMayores60 ZBS) throws ParseException {
+        DataHanding dataHanding = new DataHanding();
+        ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(codigo_geometria, fechaFinal, ZBS);
 
         return lista;
     }
