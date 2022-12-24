@@ -13,5 +13,40 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class EscribirJSON {
-    
+    public void escribirZBS(ArrayList<ZonaBasicaSalud> lista){
+        try {
+            // create Gson instance
+            Gson gson = new Gson();
+
+            // create a reader
+            Writer writer = new FileWriter("Covid19-TIA_ZonasBásicasSalud.json");
+            try {
+                gson.toJson(lista, writer);
+                writer.close();
+            } catch (JsonIOException e) {
+                throw new RuntimeException(e);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void escribirZBSMas60(ArrayList<ZonaBasicaSaludMayores60> lista){
+        try {
+            // create Gson instance
+            Gson gson = new Gson();
+
+            // create a reader
+            Writer writer = new FileWriter("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
+            try {
+                gson.toJson(lista, writer);
+                writer.close();
+            } catch (JsonIOException e) {
+                throw new RuntimeException(e);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
