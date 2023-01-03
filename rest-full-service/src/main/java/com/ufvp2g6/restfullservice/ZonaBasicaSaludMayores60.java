@@ -11,7 +11,6 @@ public class ZonaBasicaSaludMayores60
     private float tasa_incidencia_acumulada_P60mas_ultimos_14dias;
     private float casos_confirmados_P60mas_ultimos_14dias;
     private String fecha_informe;
-    //private Date fechaFinal;
 
     public ZonaBasicaSaludMayores60()
     {
@@ -44,16 +43,6 @@ public class ZonaBasicaSaludMayores60
     public void setFecha_informe(String fecha_informe) {
         this.fecha_informe = fecha_informe;
     }
-
-    /*public void setFechaFinal(String fecha_informe) throws ParseException {
-        fecha_informe = fecha_informe.replace("/", "-");
-        SimpleDateFormat Formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date d = Formato.parse(fecha_informe);
-        Formato.applyPattern("dd-MM-yyyy HH:mm:ss");
-        fecha_informe = Formato.format(d);
-        this.fechaFinal = Formato.parse(fecha_informe);
-        //System.out.println(Formato.format(fechaFinal));
-    }*/
 
     public String getCodigo_geometria() {
         return codigo_geometria;

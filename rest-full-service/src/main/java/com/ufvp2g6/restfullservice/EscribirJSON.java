@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class EscribirJSON {
     public void escribirZBS(ArrayList<ZonaBasicaSalud> lista){
         try {
-            // create Gson instance
+            // Creamos una nueva clase Json
             Gson gson = new Gson();
 
-            // create a reader
+            //Creamos la clase que permite escribir en el fichero Json
             Writer writer = new FileWriter("Covid19-TIA_ZonasBásicasSalud.json");
             try {
                 gson.toJson(lista, writer);
@@ -33,7 +33,7 @@ public class EscribirJSON {
     }
     public void escribirZBSMas60(ArrayList<ZonaBasicaSaludMayores60> lista){
         try {
-            // create Gson instance
+            //Mismo procedimiento con el 2 fichero
             Gson gson = new Gson();
 
             // create a reader
