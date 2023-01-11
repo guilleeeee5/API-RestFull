@@ -71,4 +71,24 @@ public class ZonaBasicaSaludController {
         escribirJSON.escribirZBSMas60(lista);
         return lista;
     }
+
+    @PostMapping("/ZonaBasicaSalud")
+    public ArrayList<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud zonaBasicaSalud){
+        DataHanding dataHanding = new DataHanding();
+        ArrayList<ZonaBasicaSalud> lista;
+        lista = dataHanding.AnadirZBS(zonaBasicaSalud);
+        EscribirJSON escribirJSON = new EscribirJSON();
+        escribirJSON.escribirZBS(lista);
+        return lista;
+    }
+
+    @PostMapping("/ZonaBasicaSaludMayores60")
+    public ArrayList<ZonaBasicaSaludMayores60> create(@RequestBody ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60){
+        DataHanding dataHanding = new DataHanding();
+        ArrayList<ZonaBasicaSaludMayores60> lista;
+        lista = dataHanding.AnadirZBSMas60(zonaBasicaSaludMayores60);
+        EscribirJSON escribirJSON = new EscribirJSON();
+        escribirJSON.escribirZBSMas60(lista);
+        return lista;
+    }
 }

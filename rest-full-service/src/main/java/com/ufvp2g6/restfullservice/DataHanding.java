@@ -97,7 +97,27 @@ public class DataHanding {
 
         return false;
     }
+    public ArrayList<ZonaBasicaSalud> AnadirZBS(ZonaBasicaSalud ZBS){
+        LeerJson reader = new LeerJson();
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
+        int numero = listaAux.size() - 1;
+        ZonaBasicaSalud aux = listaAux.get(numero);
+        int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;
+        ZBS.setCodigo_geometria(Integer.toString(nuevoCod));
+        listaAux.add(ZBS);
+        return listaAux;
+    }
 
+    public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60){
+        LeerJson reader = new LeerJson();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+        int numero = listaAux.size() - 1;
+        ZonaBasicaSaludMayores60 aux = listaAux.get(numero);
+        int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;
+        ZBS60.setCodigo_geometria(Integer.toString(nuevoCod));
+        listaAux.add(ZBS60);
+        return listaAux;
+    }
 }
 
 
