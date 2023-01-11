@@ -72,11 +72,13 @@ public class ZonaBasicaSaludController {
         return lista;
     }
 
-    @PostMapping("/ZonaBasicaSalud",
-        consumes = MediaType.APPLICATION_JSON_VALUE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud ZonaBasicaSalud){
-        
-
+    @PostMapping("/ZonaBasicaSalud")
+    public ResponseEntity<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud zonaBasicaSalud){
+        DataHanding dataHanding = new DataHanding();
+        ArrayList<ZonaBasicaSalud> lista;
+        lista = dataHanding.AnadirZBS(zonaBasicaSalud);
+        EscribirJSON escribirJSON = new EscribirJSON();
+        escribirJSON.escribirZBS(lista);
+        return lista;
     }
 }
