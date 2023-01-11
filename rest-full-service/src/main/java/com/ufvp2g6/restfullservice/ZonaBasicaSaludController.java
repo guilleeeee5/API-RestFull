@@ -73,7 +73,7 @@ public class ZonaBasicaSaludController {
     }
 
     @PostMapping("/ZonaBasicaSalud")
-    public ResponseEntity<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud zonaBasicaSalud){
+    public ArrayList<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud zonaBasicaSalud){
         DataHanding dataHanding = new DataHanding();
         ArrayList<ZonaBasicaSalud> lista;
         lista = dataHanding.AnadirZBS(zonaBasicaSalud);
