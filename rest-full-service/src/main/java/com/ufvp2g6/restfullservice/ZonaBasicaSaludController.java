@@ -71,4 +71,12 @@ public class ZonaBasicaSaludController {
         escribirJSON.escribirZBSMas60(lista);
         return lista;
     }
+
+    @PostMapping("/ZonaBasicaSalud",
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud ZonaBasicaSalud){
+        
+
+    }
 }
