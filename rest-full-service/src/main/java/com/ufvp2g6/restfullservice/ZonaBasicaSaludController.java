@@ -32,14 +32,6 @@ public class ZonaBasicaSaludController {
         return lista;
     }
 
-    /*@GetMapping("/ZonaBasicaSalud/{codigo_geometria}")
-    public ResponseEntity<ZonaBasicaSalud> getByID(@PathVariable String codigo_geometria){
-           DataHanding dataHanding = new DataHanding();
-           ZonaBasicaSalud zonaBasicaSalud = dataHanding.getZBSinfo(codigo_geometria);
-
-           return new ResponseEntity<>(zonaBasicaSalud, HttpStatus.OK);
-    }*/
-
     //Creamos los métodos GET para acceder a los elementos del JSON en base al elemento codigo_geometria
     @GetMapping("/ZonaBasicaSaludMayores60/{codigo_geometria}")
     public ResponseEntity<ZonaBasicaSaludMayores60> getByIDmayores60(@PathVariable String codigo_geometria){
