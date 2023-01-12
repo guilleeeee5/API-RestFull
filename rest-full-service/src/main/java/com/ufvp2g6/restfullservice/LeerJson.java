@@ -13,10 +13,10 @@ public class LeerJson {
     public static ArrayList<ZonaBasicaSalud> LeerFicheroJson1(){
         ArrayList <ZonaBasicaSalud> listaJSON = new ArrayList<>();
         try {
-            // create Gson instance
+            //Creamos el objeto Gson
             Gson gson = new Gson();
 
-            // create a reader
+            // Creamos el reader
             Reader reader = null;
             try {
                 reader = Files.newBufferedReader(Paths.get("Covid19-TIA_ZonasBásicasSalud.json"));
@@ -24,15 +24,11 @@ public class LeerJson {
                 throw new RuntimeException(e);
             }
 
-            // convert JSON array to list of users
+            //Usamos la libreria Gson para leer el fichero Json e introducirlo en un arraylist
             listaJSON = new Gson().fromJson(reader, new TypeToken<ArrayList<ZonaBasicaSalud>>() {}.getType());
             System.out.println("FICHERO Covid19-TIA_ZonasBásicasSalud.json LEIDO CORRECTAMENTE");
-            /*for(int i = 0; i < listaJSON.size(); i++)
-            {
-                listaJSON.get(i).setFechaFinal(listaJSON.get(i).getFecha_informe());
-            }*/
 
-            // close reader
+            //Cerramos el reader
             try {
                 reader.close();
             } catch (IOException e) {
@@ -48,10 +44,9 @@ public class LeerJson {
     public static ArrayList<ZonaBasicaSaludMayores60> LeerFicheroJson60(){
         ArrayList <ZonaBasicaSaludMayores60> listaJSON = new ArrayList<>();
         try {
-            // create Gson instance
+            //Mismo procedimiento que con el fichero anterior
             Gson gson = new Gson();
 
-            // create a reader
             Reader reader = null;
             try {
                 reader = Files.newBufferedReader(Paths.get("Covid19-TIA_ZonasBásicasSalud_Mayores60.json"));
@@ -59,13 +54,8 @@ public class LeerJson {
                 throw new RuntimeException(e);
             }
 
-            // convert JSON array to list of users
             listaJSON = new Gson().fromJson(reader, new TypeToken<ArrayList<ZonaBasicaSaludMayores60>>() {}.getType());
             System.out.println("FICHERO Covid19-TIA_ZonasBásicasSalud_Mayores60.json LEIDO CORRECTAMENTE");
-            /*for(int i = 0; i < listaJSON.size(); i++)
-            {
-                listaJSON.get(i).setFechaFinal(listaJSON.get(i).getFecha_informe());
-            }*/
 
             // close reader
             try {
