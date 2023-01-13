@@ -24,7 +24,7 @@ public class ZonaBasicaSaludTest extends TestCase{
         //Liberamos los valores inicializados en el método setUp
         zB = null;
     }
-
+    //TEST DE MÉTODOS GET
     @Test
     public void testGetCasos_confirmados_ultimos_14dias() {
         int resultadoEsperado = 0;
@@ -32,11 +32,6 @@ public class ZonaBasicaSaludTest extends TestCase{
         int resultado = zB.getCasos_confirmados_ultimos_14dias();
 
         assertEquals(resultado, resultadoEsperado);
-    }
-
-    @Test
-    public void testSetCasos_confirmados_ultimos_14dias() {
-        
     }
 
     @Test
@@ -65,7 +60,6 @@ public class ZonaBasicaSaludTest extends TestCase{
 
         assertEquals(Double.doubleToLongBits(resultadoEsperado), Double.doubleToLongBits(resultado));
     }
-
     @Test
     public void testGetTasa_incidencia_acumulada_total() {
         Float resultadoEsperado = (float) 1014.70013;
@@ -92,6 +86,25 @@ public class ZonaBasicaSaludTest extends TestCase{
         String resultado = zB.getFecha_informe();
 
         assertEquals(resulEsperado, resultado);
+
+    }
+
+    //TEST DE METODOS SET
+    @Test
+    public void testSetCasos_confirmados_ultimos_14dias() {
+        //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
+        //es el que hemos puesto
+        int casosEsperados = 12;
+
+        //Lo cambiamos
+        zB.setCasos_confirmados_ultimos_14dias(casosEsperados);
+
+        //Comprobamos que se ha cambiado bien
+        int resultado = zB.getCasos_confirmados_ultimos_14dias();
+
+        assertEquals(casosEsperados, resultado);
+
+
 
     }
 }
