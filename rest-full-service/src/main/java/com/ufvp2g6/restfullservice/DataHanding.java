@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DataHanding {
-    public ZonaBasicaSalud getZBSinfo(String ID, String Fecha){
+    public ZonaBasicaSalud getZBSinfo(String ID, String Fecha, String ruta){
         ZonaBasicaSalud aux = null;
         LeerJson reader = new LeerJson();
 
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
 
         for(ZonaBasicaSalud i : listaAux){
             if(i.getCodigo_geometria().equals(ID) && i.getFecha_informe().equals(Fecha)){
@@ -36,7 +36,7 @@ public class DataHanding {
 
     public ArrayList<ZonaBasicaSalud> ActualizarZBS(ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
         for(ZonaBasicaSalud i : listaAux){
             if (CompararObjetos(i, ZBS.get(0))){
                 i.setZona_basica_salud(ZBS.get(1).getZona_basica_salud());
@@ -99,7 +99,7 @@ public class DataHanding {
     }
     public ArrayList<ZonaBasicaSalud> AnadirZBS(ZonaBasicaSalud ZBS){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
         int numero = listaAux.size() - 1;
         ZonaBasicaSalud aux = listaAux.get(numero);
         int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;

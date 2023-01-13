@@ -20,7 +20,7 @@ public class ZonaBasicaSaludController {
     public ArrayList<ZonaBasicaSalud> zonas(){
         LeerJson reader = new LeerJson();
         //Leemos el reason e introducimos los elementos en un arraylist
-        ArrayList<ZonaBasicaSalud> lista = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> lista = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
         //Mostramos los elementos leidos
         return lista;
     }
