@@ -1,5 +1,6 @@
 package com.ufvp2g6.restfullservice;
 
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,12 +24,19 @@ public class DataHandingTest
     }
 
     @Test
-    public void getZBSinfo()
+    public void testGetZBSinfo()
     {
         DataHanding data = new DataHanding();
         ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
         assertSame(zbs1,data.getZBSinfo("001","2020/07/01 09:00:00"));
         fail("No encuentro correctamente el elemento pasado en la lista");
+    }
+    @Test
+    public void  getZBSM60info ()
+    {
+        DataHanding data = new DataHanding();
+        ZonaBasicaSalud zbs60_1 = new ZonaBasicaSalud("001","Abrantes",(float)182.15 ,(float)1014.70013,312,10,"2022/11/29 10:47:00");
+        assertSame(zbs60_1,data.getZBSM60info(("001")));
     }
 
     @Test
