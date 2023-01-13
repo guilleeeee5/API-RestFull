@@ -21,6 +21,8 @@ public class ZonaBasicaSaludTest extends TestCase{
 
     @After
     public void tearDown() throws Exception {
+        //Liberamos los valores inicializados en el método setUp
+        zB = null;
     }
 
     @Test
@@ -34,16 +36,25 @@ public class ZonaBasicaSaludTest extends TestCase{
 
     @Test
     public void testSetCasos_confirmados_ultimos_14dias() {
-
+        
     }
 
     @Test
     public void testGetCodigo_geometria() {
+        String resultEsperado = "001";
 
+        String resultado = zB.getCodigo_geometria();
+
+        assertEquals(resultEsperado, resultado);
     }
 
     @Test
     public void testGetZona_basica_salud() {
+        String resultEsperado = "Abrantes";
+
+        String resultado = zB.getZona_basica_salud();
+
+        assertEquals(resultEsperado, resultado);
     }
 
     @Test
@@ -57,13 +68,30 @@ public class ZonaBasicaSaludTest extends TestCase{
 
     @Test
     public void testGetTasa_incidencia_acumulada_total() {
+        Float resultadoEsperado = (float) 1014.70013;
+
+        Float resultado = zB.getTasa_incidencia_acumulada_total();
+
+        assertEquals(Double.doubleToLongBits(resultadoEsperado), Double.doubleToLongBits(resultado));
     }
 
     @Test
     public void testGetCasos_confirmados_totales() {
+        int resultEsperado = 312;
+
+        int resultado = zB.getCasos_confirmados_totales();
+
+        assertEquals(resultEsperado, resultado);
     }
 
     @Test
     public void testGetFecha_informe() {
+
+        String resulEsperado = "2020/07/01 09:00:00";
+
+        String resultado = zB.getFecha_informe();
+
+        assertEquals(resulEsperado, resultado);
+
     }
 }
