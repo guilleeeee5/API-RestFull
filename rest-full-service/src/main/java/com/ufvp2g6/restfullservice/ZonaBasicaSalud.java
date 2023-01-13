@@ -14,7 +14,7 @@ public class ZonaBasicaSalud
     private int casos_confirmados_ultimos_14dias;
     private String fecha_informe;
 
-    public ZonaBasicaSalud(String codigo_geometria, String zona_basica_salud, float tasa_incidencia_acumulada_ultimos_14dias, float tasa_incidencia_acumulada_total, int casos_confirmados_totales, int casos_confirmados_ultimos_14dias, String fecha_informe) throws ParseException {
+    public ZonaBasicaSalud(String codigo_geometria, String zona_basica_salud, float tasa_incidencia_acumulada_ultimos_14dias, float tasa_incidencia_acumulada_total, int casos_confirmados_totales, int casos_confirmados_ultimos_14dias, String fecha_informe){
         this.codigo_geometria = codigo_geometria;
         this.zona_basica_salud = zona_basica_salud;
         this.tasa_incidencia_acumulada_ultimos_14dias = tasa_incidencia_acumulada_ultimos_14dias;
