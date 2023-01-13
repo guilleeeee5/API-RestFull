@@ -7,7 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 class RestFullServiceApplicationTests {
 //Out of range, negativos, lectura correcta
 	@Test
-	void contextLoads() {
+	void contextLoads()
+	{
 	}
+
 
 }
