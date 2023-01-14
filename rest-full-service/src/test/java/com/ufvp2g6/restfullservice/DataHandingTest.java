@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 
 public class DataHandingTest
 {
+    //En esta clase se testean las funciones de la clase DataHanding
 
     public DataHandingTest() throws ParseException {
     }

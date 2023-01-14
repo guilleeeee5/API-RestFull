@@ -41,7 +41,7 @@ public class ZonaBasicaSaludController {
         return new ResponseEntity<>(zonaBasicaSaludMayores60, HttpStatus.OK);
     }
 
-    //Cremos los métodos PUT para actualzar los elementos de los Json
+    //Creamos el metodo PUT, en este actualizamos la base de datos con el objeto editado que nos pasa el usuario desde el front
     @PutMapping("/ZonaBasicaSalud")
     public ArrayList<ZonaBasicaSalud> actualizar(@RequestBody ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
         //Creamos una clase data handling para poder manipular los datos
@@ -54,7 +54,7 @@ public class ZonaBasicaSaludController {
         escribirJSON.escribirZBS(lista);
         return lista;
     }
-
+    //Creamos el metodo PUT, en este actualizamos la base de datos con el objeto editado que nos pasa el usuario desde el front
     @PutMapping("/ZonaBasicaSaludMayores60")
     public ArrayList<ZonaBasicaSaludMayores60> actualizar60(@RequestBody ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
@@ -63,7 +63,7 @@ public class ZonaBasicaSaludController {
         escribirJSON.escribirZBSMas60(lista);
         return lista;
     }
-
+    //Creamos el metodo POST, en este actualizamos la base de datos con el objeto nuevo que nos pasa el usuario desde el front
     @PostMapping("/ZonaBasicaSalud")
     public ArrayList<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud zonaBasicaSalud){
         DataHanding dataHanding = new DataHanding();
@@ -73,7 +73,7 @@ public class ZonaBasicaSaludController {
         escribirJSON.escribirZBS(lista);
         return lista;
     }
-
+    //Creamos el metodo POST, en este actualizamos la base de datos con el objeto nuevo que nos pasa el usuario desde el front
     @PostMapping("/ZonaBasicaSaludMayores60")
     public ArrayList<ZonaBasicaSaludMayores60> create(@RequestBody ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60){
         DataHanding dataHanding = new DataHanding();

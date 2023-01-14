@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class EscribirJSON {
+    //En esta clase se ha programa la escritura del JSON
     public void escribirZBS(ArrayList<ZonaBasicaSalud> lista){
         try {
             // Creamos una nueva clase Json
