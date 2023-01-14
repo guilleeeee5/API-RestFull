@@ -24,7 +24,7 @@ public class ZonaBasicaSaludTest extends TestCase{
         //Liberamos los valores inicializados en el método setUp
         zB = null;
     }
-    
+
 //=====================================================================================
     //TEST DE MÉTODOS GET
 //=====================================================================================
