@@ -25,10 +25,31 @@ public class DataHandingTest
     }
 
     @Test
-    public void testGetZBSinfo()
+    public void testGetZBSinfo_AlBuscarObjetoQueExisteNoDevuelvaNulo()
     {
         DataHanding data = new DataHanding();
         assertNotNull(data.getZBSinfo("001","2020/07/01 09:00:00","../Covid19-TIA_ZonasBásicasSalud.json"));
+    }
+
+    @Test
+    public void testGetZBSinfo_AlBuscarObjetoQueNoExisteDevuelvaNulo()
+    {
+        DataHanding data = new DataHanding();
+        assertNull(data.getZBSinfo("999","2020/07/01 09:00:00","../Covid19-TIA_ZonasBásicasSalud.json"));
+    }
+
+    @Test
+    public void getZBSM60info_AlBuscarObjetoQueExisteNoDevuelvaNulo()
+    {
+        DataHanding data = new DataHanding();
+        assertNotNull(data.getZBSM60info("001","../Covid19-TIA_ZonasBásicasSalud_Mayores60.json"));
+    }
+
+    @Test
+    public void getZBSM60info_AlBuscarObjetoQueNoExisteDevuelvaNulo()
+    {
+        DataHanding data = new DataHanding();
+        assertNull(data.getZBSM60info("999","../Covid19-TIA_ZonasBásicasSalud_Mayores60.json"));
     }
     @Test
     public void CompararObjetos_DosObjetosIgualesComparacionCorrecta()

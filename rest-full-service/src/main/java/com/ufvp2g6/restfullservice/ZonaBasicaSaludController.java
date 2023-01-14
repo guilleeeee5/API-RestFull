@@ -28,7 +28,7 @@ public class ZonaBasicaSaludController {
     @GetMapping("/ZonaBasicaSaludMayores60")
     public ArrayList<ZonaBasicaSaludMayores60> zonas60(){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSaludMayores60> lista = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> lista = reader.LeerFicheroJson60("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         return lista;
     }
 
@@ -37,7 +37,7 @@ public class ZonaBasicaSaludController {
     public ResponseEntity<ZonaBasicaSaludMayores60> getByIDmayores60(@PathVariable String codigo_geometria){
         //Creamos la clase que nos permita operar los elementos del Json
         DataHanding dataHanding = new DataHanding();
-        ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60 = dataHanding.getZBSM60info(codigo_geometria);
+        ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60 = dataHanding.getZBSM60info(codigo_geometria,"Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         return new ResponseEntity<>(zonaBasicaSaludMayores60, HttpStatus.OK);
     }
 

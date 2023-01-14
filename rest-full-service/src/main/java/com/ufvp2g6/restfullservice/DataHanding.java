@@ -20,11 +20,11 @@ public class DataHanding {
         return aux;
     }
 
-    public ZonaBasicaSaludMayores60 getZBSM60info(String ID){
+    public ZonaBasicaSaludMayores60 getZBSM60info(String ID,String ruta){
         ZonaBasicaSaludMayores60 aux = null;
         LeerJson reader = new LeerJson();
 
-        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60(ruta);
 
         for(ZonaBasicaSaludMayores60 i : listaAux){
             if(i.getCodigo_geometria().equals(ID)){
@@ -52,7 +52,7 @@ public class DataHanding {
 
     public ArrayList<ZonaBasicaSaludMayores60> ActualizarZBS60(ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
 
         for(ZonaBasicaSaludMayores60 i : listaAux){
             if (CompararObjetos60(i, ZBS.get(0))){
@@ -110,7 +110,7 @@ public class DataHanding {
 
     public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         int numero = listaAux.size() - 1;
         ZonaBasicaSaludMayores60 aux = listaAux.get(numero);
         int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;
