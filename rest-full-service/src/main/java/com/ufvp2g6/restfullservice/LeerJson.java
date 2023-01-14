@@ -10,7 +10,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class LeerJson {
+    //En esta clase se leen los JSON
     public static ArrayList<ZonaBasicaSalud> LeerFicheroJson1(String ruta){
+        //En esta clase se lee el fichero JSON de menores de 60
         ArrayList <ZonaBasicaSalud> listaJSON = new ArrayList<>();
         try {
             //Creamos el objeto Gson
@@ -42,6 +44,7 @@ public class LeerJson {
     }
 
     public static ArrayList<ZonaBasicaSaludMayores60> LeerFicheroJson60(String ruta){
+        //En esta clase se lee el fichero JSON de mayores de 60
         ArrayList <ZonaBasicaSaludMayores60> listaJSON = new ArrayList<>();
         try {
             //Mismo procedimiento que con el fichero anterior

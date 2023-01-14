@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DataHanding {
+    //En esta clase se ha programado el manejo de datos a partir de las peticiones
     public ZonaBasicaSalud getZBSinfo(String ID, String Fecha, String ruta){
+        //En esta funcion se almacenan los datos del fichero JSON en un ArrayList para ser enviados posteriormente con un HTTP request
+
         ZonaBasicaSalud aux = null;
         LeerJson reader = new LeerJson();
 
@@ -21,6 +24,7 @@ public class DataHanding {
     }
 
     public ZonaBasicaSaludMayores60 getZBSM60info(String ID,String ruta){
+        //En esta funcion se almacenan los datos del fichero JSON en un ArrayList para ser enviados posteriormente con un HTTP request
         ZonaBasicaSaludMayores60 aux = null;
         LeerJson reader = new LeerJson();
 
@@ -35,6 +39,7 @@ public class DataHanding {
     }
 
     public ArrayList<ZonaBasicaSalud> ActualizarZBS(ArrayList<ZonaBasicaSalud> ZBS, String ruta) throws ParseException {
+        //En esta funcion se actualizan las bases de datos con los objetos enviados por el usuario desde el front
         LeerJson reader = new LeerJson();
         ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
         for(ZonaBasicaSalud i : listaAux){
@@ -51,6 +56,7 @@ public class DataHanding {
     }
 
     public ArrayList<ZonaBasicaSaludMayores60> ActualizarZBS60(ArrayList<ZonaBasicaSaludMayores60> ZBS, String ruta) throws ParseException {
+        //En esta funcion se actualizan las bases de datos con los objetos enviados por el usuario desde el front
         LeerJson reader = new LeerJson();
         ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60(ruta);
 
@@ -67,6 +73,7 @@ public class DataHanding {
     }
 
     public boolean CompararObjetos(ZonaBasicaSalud Obj1, ZonaBasicaSalud Obj2){
+        //En esta funcion se comparan dos objetos entre sí para saber si son iguales o no, se comparan todos sus atributos
         if(Obj1.getCodigo_geometria().equals(Obj2.getCodigo_geometria())){
             if(Obj1.getZona_basica_salud().equals((Obj2.getZona_basica_salud()))){
                 if(Obj1.getCasos_confirmados_ultimos_14dias() == Obj2.getCasos_confirmados_ultimos_14dias()){
@@ -83,6 +90,7 @@ public class DataHanding {
     }
 
     public boolean CompararObjetos60(ZonaBasicaSaludMayores60 Obj1, ZonaBasicaSaludMayores60 Obj2){
+        //En esta funcion se comparan dos objetos entre sí para saber si son iguales o no, se comparan todos sus atributos
         if(Obj1.getCodigo_geometria().equals(Obj2.getCodigo_geometria())){
             if(Obj1.getZona_basica_salud().equals((Obj2.getZona_basica_salud()))){
                 if(Obj1.getCasos_confirmados_P60mas_ultimos_14dias() == Obj2.getCasos_confirmados_P60mas_ultimos_14dias()){
@@ -98,6 +106,7 @@ public class DataHanding {
         return false;
     }
     public ArrayList<ZonaBasicaSalud> AnadirZBS(ZonaBasicaSalud ZBS, String ruta){
+        //En esta funcion se añaden los nuevos elementos enviados desde el front a un ArrayList para posteriormente actualizar la BBDD
         LeerJson reader = new LeerJson();
         ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
         int numero = listaAux.size() - 1;
@@ -109,6 +118,7 @@ public class DataHanding {
     }
 
     public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60,String ruta){
+        //En esta funcion se añaden los nuevos elementos enviados desde el front a un ArrayList para posteriormente actualizar la BBDD
         LeerJson reader = new LeerJson();
         ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60(ruta);
         int NumAux = 001;
