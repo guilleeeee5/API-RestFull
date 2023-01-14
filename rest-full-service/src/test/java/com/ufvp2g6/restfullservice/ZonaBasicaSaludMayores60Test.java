@@ -25,8 +25,11 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 //=====================================================================================
     //TEST DE MÉTODOS GET
 //=====================================================================================
+
+    //En estos test comprobamos que los métodos get para los atributos de la calse de ZonaBasicaSaludMayores60 funcionan como deben
     @Test
     public void testGetCodigo_geometria() {
+        //En este test comprobamos que el codigo que recibimos del metodo get es igual al esperado
         String resultEsperado = "001";
 
         String resultado = zB60.getCodigo_geometria();
@@ -36,6 +39,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 
     @Test
     public void testGetZona_basica_salud() {
+        //En este test comprobamos que la zona que recibimos del metodo get es igual a la esperada
         String resultEsperado = "Abrantes";
 
         String resultado = zB60.getZona_basica_salud();
@@ -45,6 +49,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 
     @Test
     public void testGetTasa_incidencia_acumulada_P60mas_ultimos_14dias() {
+        //En este test comprobamos que la tasa de incidencia que recibimos del metodo get es igual a la esperada
         float resultadoEsperado = (float) 182.15;
 
         float resultado = zB60.getTasa_incidencia_acumulada_P60mas_ultimos_14dias();
@@ -54,6 +59,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 
     @Test
     public void testGetCasos_confirmados_P60mas_ultimos_14dias() {
+        //En este test comprobamos que los casos confimados que recibimos del metodo get es igual a la esperada
         float resultadoEsperado = (float) 13.0;
 
         float resultado = zB60.getCasos_confirmados_P60mas_ultimos_14dias();
@@ -63,6 +69,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 
     @Test
     public void testGetFecha_informe() {
+        //En este test comprobamos que la fecha que recibimos del metodo get es igual a la esperada
         String resulEsperado = "2020/07/01 09:00:00";
 
         String resultado = zB60.getFecha_informe();
@@ -74,6 +81,8 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 //=====================================================================================
     //TEST DE MÉTODOS SET
 //=====================================================================================
+
+    //En estos test comprobamos que los métodos set para los atributos de la calse de ZonaBasicaSaludMayores60 funcionan como deben
     @Test
     public void testSetCodigo_geometria() {
         //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
