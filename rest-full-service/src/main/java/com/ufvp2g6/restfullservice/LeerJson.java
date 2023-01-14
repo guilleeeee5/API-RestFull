@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class LeerJson {
-    public static ArrayList<ZonaBasicaSalud> LeerFicheroJson1(){
+    public static ArrayList<ZonaBasicaSalud> LeerFicheroJson1(String ruta){
         ArrayList <ZonaBasicaSalud> listaJSON = new ArrayList<>();
         try {
             //Creamos el objeto Gson
@@ -19,7 +19,7 @@ public class LeerJson {
             // Creamos el reader
             Reader reader = null;
             try {
-                reader = Files.newBufferedReader(Paths.get("Covid19-TIA_ZonasBásicasSalud.json"));
+                reader = Files.newBufferedReader(Paths.get(ruta));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -41,7 +41,7 @@ public class LeerJson {
         return listaJSON;
     }
 
-    public static ArrayList<ZonaBasicaSaludMayores60> LeerFicheroJson60(){
+    public static ArrayList<ZonaBasicaSaludMayores60> LeerFicheroJson60(String ruta){
         ArrayList <ZonaBasicaSaludMayores60> listaJSON = new ArrayList<>();
         try {
             //Mismo procedimiento que con el fichero anterior
@@ -49,7 +49,7 @@ public class LeerJson {
 
             Reader reader = null;
             try {
-                reader = Files.newBufferedReader(Paths.get("Covid19-TIA_ZonasBásicasSalud_Mayores60.json"));
+                reader = Files.newBufferedReader(Paths.get(ruta));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

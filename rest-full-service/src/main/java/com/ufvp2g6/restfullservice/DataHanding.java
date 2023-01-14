@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DataHanding {
-    public ZonaBasicaSalud getZBSinfo(String ID, String Fecha){
+    public ZonaBasicaSalud getZBSinfo(String ID, String Fecha, String ruta){
         ZonaBasicaSalud aux = null;
         LeerJson reader = new LeerJson();
 
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
 
         for(ZonaBasicaSalud i : listaAux){
             if(i.getCodigo_geometria().equals(ID) && i.getFecha_informe().equals(Fecha)){
@@ -20,11 +20,11 @@ public class DataHanding {
         return aux;
     }
 
-    public ZonaBasicaSaludMayores60 getZBSM60info(String ID){
+    public ZonaBasicaSaludMayores60 getZBSM60info(String ID,String ruta){
         ZonaBasicaSaludMayores60 aux = null;
         LeerJson reader = new LeerJson();
 
-        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60(ruta);
 
         for(ZonaBasicaSaludMayores60 i : listaAux){
             if(i.getCodigo_geometria().equals(ID)){
@@ -34,9 +34,9 @@ public class DataHanding {
         return aux;
     }
 
-    public ArrayList<ZonaBasicaSalud> ActualizarZBS(ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
+    public ArrayList<ZonaBasicaSalud> ActualizarZBS(ArrayList<ZonaBasicaSalud> ZBS, String ruta) throws ParseException {
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
         for(ZonaBasicaSalud i : listaAux){
             if (CompararObjetos(i, ZBS.get(0))){
                 i.setZona_basica_salud(ZBS.get(1).getZona_basica_salud());
@@ -50,9 +50,9 @@ public class DataHanding {
         return listaAux;
     }
 
-    public ArrayList<ZonaBasicaSaludMayores60> ActualizarZBS60(ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
+    public ArrayList<ZonaBasicaSaludMayores60> ActualizarZBS60(ArrayList<ZonaBasicaSaludMayores60> ZBS, String ruta) throws ParseException {
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60(ruta);
 
         for(ZonaBasicaSaludMayores60 i : listaAux){
             if (CompararObjetos60(i, ZBS.get(0))){
@@ -97,9 +97,9 @@ public class DataHanding {
 
         return false;
     }
-    public ArrayList<ZonaBasicaSalud> AnadirZBS(ZonaBasicaSalud ZBS){
+    public ArrayList<ZonaBasicaSalud> AnadirZBS(ZonaBasicaSalud ZBS, String ruta){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
         int numero = listaAux.size() - 1;
         ZonaBasicaSalud aux = listaAux.get(numero);
         int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;
@@ -108,9 +108,9 @@ public class DataHanding {
         return listaAux;
     }
 
-    public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60){
+    public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60,String ruta){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60(ruta);
         int NumAux = 001;
         int NumObjeto;
         for (ZonaBasicaSaludMayores60 objeto: listaAux) {
