@@ -51,22 +51,78 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 //=====================================================================================
     @Test
     public void testSetCodigo_geometria() {
+        //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
+        //es el que hemos puesto
+        String codigo_geometriaEsperado = "178";
+
+        //Lo cambiamos
+        zB60.setCodigo_geometria(codigo_geometriaEsperado);
+
+        //Comprobamos que se ha cambiado bien
+        String resultado = zB60.getCodigo_geometria();
+
+        assertEquals(codigo_geometriaEsperado, resultado);
     }
 
     @Test
     public void testSetZona_basica_salud() {
+        //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
+        //es el que hemos puesto
+        String zonaBasicaSaludEsperada = "Montesa";
+
+        //Lo cambiamos
+        zB60.setZona_basica_salud(zonaBasicaSaludEsperada);
+
+        //Comprobamos que se ha cambiado bien
+        String resultado = zB60.getZona_basica_salud();
+
+        assertEquals(zonaBasicaSaludEsperada, resultado);
     }
 
     @Test
     public void testSetTasa_incidencia_acumulada_P60mas_ultimos_14dias() {
+        //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
+        //es el que hemos puesto
+        float tasaAcumulada60Esperada = (float) 266.63;
+
+        //Lo cambiamos
+        zB60.setTasa_incidencia_acumulada_P60mas_ultimos_14dias(tasaAcumulada60Esperada);
+
+        //Comprobamos que se ha cambiado bien
+        float resultado = zB60.getTasa_incidencia_acumulada_P60mas_ultimos_14dias();
+
+        assertEquals(tasaAcumulada60Esperada, resultado);
     }
 
     @Test
     public void testSetCasos_confirmados_P60mas_ultimos_14dias() {
+        //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
+        //es el que hemos puesto
+        float casosConfirmados60Esperada = (float) 19.0;
+
+        //Lo cambiamos
+        zB60.setCasos_confirmados_P60mas_ultimos_14dias(casosConfirmados60Esperada);
+
+        //Comprobamos que se ha cambiado bien
+        float resultado = zB60.getCasos_confirmados_P60mas_ultimos_14dias();
+
+        assertEquals(casosConfirmados60Esperada, resultado);
     }
 
     @Test
     public void testSetFecha_informe() {
+        //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
+        //es el que hemos puesto
+        String fechaInformeEsperada = "2022/08/02 11:36:00";
+
+        //Lo cambiamos
+        zB60.setFecha_informe(fechaInformeEsperada);
+
+        //Comprobamos que se ha cambiado bien
+        String resultado = zB60.getFecha_informe();
+
+        assertEquals(fechaInformeEsperada, resultado);
+
     }
 
 
