@@ -111,9 +111,15 @@ public class DataHanding {
     public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60){
         LeerJson reader = new LeerJson();
         ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60();
-        int numero = listaAux.size() - 1;
-        ZonaBasicaSaludMayores60 aux = listaAux.get(numero);
-        int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;
+        int NumAux = 001;
+        int NumObjeto;
+        for (ZonaBasicaSaludMayores60 objeto: listaAux) {
+            NumObjeto = Integer.parseInt(objeto.getCodigo_geometria());
+            if(NumObjeto > NumAux){
+                NumAux = NumObjeto;
+            }
+        }
+        int nuevoCod = NumAux + 1;
         ZBS60.setCodigo_geometria(Integer.toString(nuevoCod));
         listaAux.add(ZBS60);
         return listaAux;
