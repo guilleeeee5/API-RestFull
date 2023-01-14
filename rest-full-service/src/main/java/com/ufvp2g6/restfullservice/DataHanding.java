@@ -97,9 +97,9 @@ public class DataHanding {
 
         return false;
     }
-    public ArrayList<ZonaBasicaSalud> AnadirZBS(ZonaBasicaSalud ZBS){
+    public ArrayList<ZonaBasicaSalud> AnadirZBS(ZonaBasicaSalud ZBS, String ruta){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
         int numero = listaAux.size() - 1;
         ZonaBasicaSalud aux = listaAux.get(numero);
         int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;
@@ -108,9 +108,9 @@ public class DataHanding {
         return listaAux;
     }
 
-    public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60){
+    public ArrayList<ZonaBasicaSaludMayores60> AnadirZBSMas60(ZonaBasicaSaludMayores60 ZBS60,String ruta){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = reader.LeerFicheroJson60(ruta);
         int numero = listaAux.size() - 1;
         ZonaBasicaSaludMayores60 aux = listaAux.get(numero);
         int nuevoCod = Integer.parseInt(aux.getCodigo_geometria()) + 1;

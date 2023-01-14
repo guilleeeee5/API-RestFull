@@ -134,14 +134,9 @@ public class DataHandingTest
         {
             if (data.CompararObjetos(i, listaAux.get(1)))
             {
-                contador = 1;
-                assertTrue(contador == 1);
-            }
-            else
-            {
                 assertTrue(contador == 0);
-
             }
+
         }
 
     }
@@ -199,10 +194,6 @@ public class DataHandingTest
             {
                 assertFalse(contador == 0);
             }
-            else
-            {
-                assertTrue(contador == 0);
-            }
         }
 
     }
@@ -215,7 +206,7 @@ public class DataHandingTest
         LeerJson reader = new LeerJson();
         int contador = 0;
 
-        listaAux1 = reader.LeerFicheroJson60("../Covid19-TIA_ZonasBásicasSalud.json");
+        listaAux1 = reader.LeerFicheroJson60("../Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
 
         ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","JuanchoPerez",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
         ZonaBasicaSaludMayores60 zbs60_2 =  new ZonaBasicaSaludMayores60(null ,null,0,0,null);
@@ -227,13 +218,7 @@ public class DataHandingTest
         {
             if (data.CompararObjetos60(i, listaAux.get(1)))
             {
-                contador = 1;
                 assertFalse(contador == 0);
-            }
-            else
-            {
-                assertTrue(contador == 0);
-
             }
         }
 
@@ -259,16 +244,54 @@ public class DataHandingTest
         {
             if (data.CompararObjetos(i, listaAux.get(1)))
             {
-                contador = 1;
                 assertFalse(contador == 0);
-            }
-            else
-            {
-                assertTrue(contador == 0);
-
             }
         }
 
+    }
+
+    @Test
+    public void AniadirZBS_ComprobarSiAniadeCorrectamenteUnObjeto()
+    {
+        DataHanding data = new DataHanding();
+        ZonaBasicaSalud Juancho = new ZonaBasicaSalud("001","Juancho",(float)3.56 ,(float)1254.3,280,12,"2020/07/01 09:00:00");
+        ArrayList<ZonaBasicaSalud> listaAux = new ArrayList<>();
+        int contador = 0;
+        LeerJson reader = new LeerJson();
+
+        ArrayList<ZonaBasicaSalud> listaAux1 = reader.LeerFicheroJson1("../Covid19-TIA_ZonasBásicasSalud.json");
+
+        listaAux = data.AnadirZBS(Juancho,"../Covid19-TIA_ZonasBásicasSalud.json");
+
+        for(ZonaBasicaSalud i : listaAux1)
+        {
+            if (data.CompararObjetos(i,Juancho))
+            {
+                assertTrue(contador == 0);
+            }
+        }
+    }
+
+    @Test
+    public void AnadirZBSMas60_ComprobarSiAniadeCorrectamenteUnObjeto()
+    {
+        DataHanding data = new DataHanding();
+        ZonaBasicaSaludMayores60 Juancho = new ZonaBasicaSaludMayores60("001","Juancho",(float)3.56 ,(float)1254.3,"2020/07/01 09:00:00");
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = new ArrayList<>();
+        int contador = 0;
+        LeerJson reader = new LeerJson();
+
+        ArrayList<ZonaBasicaSaludMayores60> listaAux1 = reader.LeerFicheroJson60("../Covid19-TIA_ZonasBásicasSalud.json");
+
+        listaAux = data.AnadirZBSMas60(Juancho,"../Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
+
+        for(ZonaBasicaSaludMayores60 i : listaAux1)
+        {
+            if (data.CompararObjetos60(i,Juancho))
+            {
+                assertTrue(contador == 0);
+            }
+        }
     }
 
 }

@@ -68,7 +68,7 @@ public class ZonaBasicaSaludController {
     public ArrayList<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud zonaBasicaSalud){
         DataHanding dataHanding = new DataHanding();
         ArrayList<ZonaBasicaSalud> lista;
-        lista = dataHanding.AnadirZBS(zonaBasicaSalud);
+        lista = dataHanding.AnadirZBS(zonaBasicaSalud,"Covid19-TIA_ZonasBásicasSalud.json");
         EscribirJSON escribirJSON = new EscribirJSON();
         escribirJSON.escribirZBS(lista);
         return lista;
@@ -78,7 +78,7 @@ public class ZonaBasicaSaludController {
     public ArrayList<ZonaBasicaSaludMayores60> create(@RequestBody ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60){
         DataHanding dataHanding = new DataHanding();
         ArrayList<ZonaBasicaSaludMayores60> lista;
-        lista = dataHanding.AnadirZBSMas60(zonaBasicaSaludMayores60);
+        lista = dataHanding.AnadirZBSMas60(zonaBasicaSaludMayores60,"Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         EscribirJSON escribirJSON = new EscribirJSON();
         escribirJSON.escribirZBSMas60(lista);
         return lista;
