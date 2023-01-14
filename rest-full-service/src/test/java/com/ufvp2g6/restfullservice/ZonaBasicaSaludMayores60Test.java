@@ -27,22 +27,47 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 //=====================================================================================
     @Test
     public void testGetCodigo_geometria() {
+        String resultEsperado = "001";
+
+        String resultado = zB60.getCodigo_geometria();
+
+        assertEquals(resultEsperado, resultado);
     }
 
     @Test
     public void testGetZona_basica_salud() {
+        String resultEsperado = "Abrantes";
+
+        String resultado = zB60.getZona_basica_salud();
+
+        assertEquals(resultEsperado, resultado);
     }
 
     @Test
     public void testGetTasa_incidencia_acumulada_P60mas_ultimos_14dias() {
+        float resultadoEsperado = (float) 182.15;
+
+        float resultado = zB60.getTasa_incidencia_acumulada_P60mas_ultimos_14dias();
+
+        assertEquals(Double.doubleToLongBits(resultadoEsperado), Double.doubleToLongBits(resultado));
     }
 
     @Test
     public void testGetCasos_confirmados_P60mas_ultimos_14dias() {
+        float resultadoEsperado = (float) 13.0;
+
+        float resultado = zB60.getCasos_confirmados_P60mas_ultimos_14dias();
+
+        assertEquals(resultadoEsperado,resultado);
     }
 
     @Test
     public void testGetFecha_informe() {
+        String resulEsperado = "2020/07/01 09:00:00";
+
+        String resultado = zB60.getFecha_informe();
+
+        assertEquals(resulEsperado, resultado);
     }
 
 
@@ -113,7 +138,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     public void testSetFecha_informe() {
         //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
         //es el que hemos puesto
-        String fechaInformeEsperada = "2022/08/02 11:36:00";
+        String fechaInformeEsperada = "2022/11/29 10:47:00";
 
         //Lo cambiamos
         zB60.setFecha_informe(fechaInformeEsperada);
