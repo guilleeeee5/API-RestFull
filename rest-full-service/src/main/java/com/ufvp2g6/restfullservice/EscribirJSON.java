@@ -35,7 +35,13 @@ public class EscribirJSON {
         try {
             //Mismo procedimiento con el 2 fichero
             Gson gson = new Gson();
-
+            String aux = "";
+            int aux2;
+            for (ZonaBasicaSaludMayores60 objeto:lista) {
+                aux2 = Integer.parseInt(objeto.getCodigo_geometria());
+                aux = String.format("%03d", aux2);
+                objeto.setCodigo_geometria(aux);
+            }
             // create a reader
             Writer writer = new FileWriter("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
             try {
