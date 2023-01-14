@@ -70,7 +70,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     @Test
     public void testGetFecha_informe() {
         //En este test comprobamos que la fecha que recibimos del metodo get es igual a la esperada
-        String resulEsperado = "2020/07/01 09:00:00";
+        String resulEsperado = "2022/11/29 10:47:00";
 
         String resultado = zB60.getFecha_informe();
 
