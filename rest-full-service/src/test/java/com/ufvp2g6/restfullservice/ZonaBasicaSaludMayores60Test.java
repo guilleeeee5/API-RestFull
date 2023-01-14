@@ -12,11 +12,13 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     ZonaBasicaSaludMayores60 zB60;
     @Before
     public void setUp() throws Exception {
+        //Creamos aquí las variables comunes a todos los test para evitar código duplicado
         zB60 = new ZonaBasicaSaludMayores60("001", "Abrantes", (float) 182.15,(float) 13.0, "2022/11/29 10:47:00");
     }
 
     @After
     public void tearDown() throws Exception {
+        //Liberamos los valores inicializados en el método setUp
         zB60 = null;
     }
 
