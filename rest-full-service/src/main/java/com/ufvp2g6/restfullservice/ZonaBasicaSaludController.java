@@ -58,7 +58,7 @@ public class ZonaBasicaSaludController {
     @PutMapping("/ZonaBasicaSaludMayores60")
     public ArrayList<ZonaBasicaSaludMayores60> actualizar60(@RequestBody ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
-        ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(ZBS);
+        ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(ZBS,"Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         EscribirJSON escribirJSON = new EscribirJSON();
         escribirJSON.escribirZBSMas60(lista);
         return lista;
