@@ -175,15 +175,16 @@ public class DataHandingTest
 
     }
     @Test
-    public void ActualizarZBS60_DosObjetosUnoNoExisteNoActualizaCorrectamente() throws ParseException {
+    public void ActualizarZBS60_DosObjetosUnoNoExisteNoActualizaCorrectamente() throws ParseException
+    {
         ArrayList<ZonaBasicaSaludMayores60> listaAux = new ArrayList<>();
         ArrayList<ZonaBasicaSaludMayores60> listaAux1 = new ArrayList<>();
         DataHanding data = new DataHanding();
         LeerJson reader = new LeerJson();
         int contador = 0;
 
-        ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
-        ZonaBasicaSaludMayores60 zbs60_2 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
+        ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","JuanchoPerez",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
+        ZonaBasicaSaludMayores60 zbs60_2 = new ZonaBasicaSaludMayores60("001","Marquinos",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
         listaAux.add(zbs60_1);
         listaAux.add(zbs60_1);
 
@@ -196,8 +197,38 @@ public class DataHandingTest
         {
             if (data.CompararObjetos60(i, listaAux.get(1)))
             {
+                assertFalse(contador == 0);
+            }
+            else
+            {
+                assertTrue(contador == 0);
+            }
+        }
+
+    }
+
+    @Test
+    public void ActualizarZBS60_ListaConObjetoConAtributosNulos() throws ParseException {
+        ArrayList<ZonaBasicaSaludMayores60> listaAux = new ArrayList<>();
+        ArrayList<ZonaBasicaSaludMayores60> listaAux1 = new ArrayList<>();
+        DataHanding data = new DataHanding();
+        LeerJson reader = new LeerJson();
+        int contador = 0;
+
+        listaAux1 = reader.LeerFicheroJson60("../Covid19-TIA_ZonasBásicasSalud.json");
+
+        ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","JuanchoPerez",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
+        ZonaBasicaSaludMayores60 zbs60_2 =  new ZonaBasicaSaludMayores60(null ,null,0,0,null);
+
+        listaAux.add(zbs60_1);
+        listaAux.add(zbs60_1);
+
+        for(ZonaBasicaSaludMayores60 i : listaAux1)
+        {
+            if (data.CompararObjetos60(i, listaAux.get(1)))
+            {
                 contador = 1;
-                assertTrue(contador == 1);
+                assertFalse(contador == 0);
             }
             else
             {
@@ -207,4 +238,37 @@ public class DataHandingTest
         }
 
     }
+
+    @Test
+    public void ActualizarZBS_ListaConObjetoConAtributosNulos() throws ParseException {
+        ArrayList<ZonaBasicaSalud> listaAux = new ArrayList<>();
+        ArrayList<ZonaBasicaSalud> listaAux1 = new ArrayList<>();
+        DataHanding data = new DataHanding();
+        LeerJson reader = new LeerJson();
+        int contador = 0;
+
+        listaAux1 = reader.LeerFicheroJson1("../Covid19-TIA_ZonasBásicasSalud.json");
+
+        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","RigobertaIV",(float)3.25224 ,(float)1219.6377,237,0,"2020/07/01 09:00:00");
+        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud(null,null,0,0,0,0,null);
+
+        listaAux.add(zbs1);
+        listaAux.add(zbs2);
+
+        for(ZonaBasicaSalud i : listaAux1)
+        {
+            if (data.CompararObjetos(i, listaAux.get(1)))
+            {
+                contador = 1;
+                assertFalse(contador == 0);
+            }
+            else
+            {
+                assertTrue(contador == 0);
+
+            }
+        }
+
+    }
+
 }
