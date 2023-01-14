@@ -88,13 +88,73 @@ public class DataHandingTest
     @Test
     public void ActualizarZBS_DosObjetosActualizaCorrectamente() throws ParseException {
         ArrayList<ZonaBasicaSalud> listaAux = new ArrayList<>();
+        ArrayList<ZonaBasicaSalud> listaAux1 = new ArrayList<>();
         DataHanding data = new DataHanding();
-        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
-        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("005","MArcos",(float)8.25224 ,(float)1314.70013,532,10,"2020/10/01 09:00:00");
+        LeerJson reader = new LeerJson();
+        int contador = 0;
+
+        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Lucas",(float)3.25224 ,(float)1219.6377,237,0,"2020/07/01 09:00:00");
+        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("001","Marcos",(float)3.25224 ,(float)1314.70013,532,10,"2020/10/01 09:00:00");
         listaAux.add(zbs1);
         listaAux.add(zbs2);
 
-        assertNotNull(data.ActualizarZBS(listaAux,"../Covid19-TIA_ZonasBásicasSalud.json"));
+
+
+        listaAux1 = reader.LeerFicheroJson1("../Covid19-TIA_ZonasBásicasSalud.json");
+        listaAux1 = data.ActualizarZBS(listaAux,"../Covid19-TIA_ZonasBásicasSalud.json");
+
+        for(ZonaBasicaSalud i : listaAux1)
+        {
+                if (data.CompararObjetos(i, listaAux.get(1)))
+                {
+                    contador = 1;
+                    assertTrue(contador == 1);
+                }
+        }
+
+    }
+    @Test
+    public void ActualizarZBS_DosObjetosUnoNoExisteNoActualizaCorrectamente() throws ParseException {
+        ArrayList<ZonaBasicaSalud> listaAux = new ArrayList<>();
+        DataHanding data = new DataHanding();
+        LeerJson reader = new LeerJson();
+        int contador = 0;
+
+        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","RigobertaIV",(float)3.25224 ,(float)1219.6377,237,0,"2020/07/01 09:00:00");
+        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("001","Marcos",(float)3.25224 ,(float)1314.70013,532,10,"2020/10/01 09:00:00");
+        listaAux.add(zbs1);
+        listaAux.add(zbs2);
+
+
+
+        ArrayList<ZonaBasicaSalud> listaAux1 = reader.LeerFicheroJson1("../Covid19-TIA_ZonasBásicasSalud.json");
+        listaAux1 = data.ActualizarZBS(listaAux,"../Covid19-TIA_ZonasBásicasSalud.json");
+
+        for(ZonaBasicaSalud i : listaAux1)
+        {
+            if (data.CompararObjetos(i, listaAux.get(1)))
+            {
+                contador = 1;
+                assertTrue(contador == 1);
+            }
+            else
+            {
+                assertTrue(contador == 0);
+
+            }
+        }
+
+    }
+    @Test
+    public void ActualizarZBS_DosObjetosIgualesNoActualizaCorrectamente() throws ParseException {
+        ArrayList<ZonaBasicaSalud> listaAux = new ArrayList<>();
+        DataHanding data = new DataHanding();
+        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("999","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("005","Marcos",(float)8.25224 ,(float)1314.70013,532,10,"2020/10/01 09:00:00");
+        listaAux.add(zbs1);
+        listaAux.add(zbs2);
+
+        assertNull(data.ActualizarZBS(listaAux,"../Covid19-TIA_ZonasBásicasSalud.json"));
 
     }
 }
