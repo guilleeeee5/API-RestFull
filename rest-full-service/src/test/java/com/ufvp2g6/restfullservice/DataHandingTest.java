@@ -27,6 +27,7 @@ public class DataHandingTest
     @Test
     public void testGetZBSinfo_AlBuscarObjetoQueExisteNoDevuelvaNulo()
     {
+        //Testeamos que al buscar un objeto que existe en la lista no nos devuelva un valor nulo
         DataHanding data = new DataHanding();
         assertNotNull(data.getZBSinfo("001","2020/07/01 09:00:00","../Covid19-TIA_ZonasBásicasSalud.json"));
     }
@@ -34,6 +35,7 @@ public class DataHandingTest
     @Test
     public void testGetZBSinfo_AlBuscarObjetoQueNoExisteDevuelvaNulo()
     {
+        //Testeamos que al buscar un objeto que no existe en la lista nos devuelva un valor nulo
         DataHanding data = new DataHanding();
         assertNull(data.getZBSinfo("999","2020/07/01 09:00:00","../Covid19-TIA_ZonasBásicasSalud.json"));
     }
@@ -54,16 +56,24 @@ public class DataHandingTest
     @Test
     public void CompararObjetos_DosObjetosIgualesComparacionCorrecta()
     {
+        //Comprobamos que al pasar dos objetos identicos nos mencione que son iguales
         ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
-        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
         assertSame(zbs1,zbs1);
+    }
+
+    @Test
+    public void CompararObjetos_DosObjetosNoIgualesComparacionCorrecta()
+    {
+        //Comprobamos que al pasar dos objetos diferentes nos mencione que son diferentes
+        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("999","Abrantos",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+        assertNotSame(zbs1,zbs2);
     }
 
     @Test
     public void CompararObjetos60_DosObjetosIgualesComparacionCorrecta()
     {
         ZonaBasicaSalud zbs60_1 = new ZonaBasicaSalud("001","Abrantes",(float)182.15 ,(float)1014.70013,312,10,"2022/11/29 10:47:00");
-        ZonaBasicaSalud zbs60_2 = new ZonaBasicaSalud("001","Abrantes",(float)182.15 ,(float)1014.70013,312,10,"2022/11/29 10:47:00");
         assertSame(zbs60_1,zbs60_1);
     }
 
@@ -73,5 +83,18 @@ public class DataHandingTest
         ZonaBasicaSalud zbs60_1 = new ZonaBasicaSalud("002","Abrantes",(float)185.15 ,(float)1214.70013,312,10,"2022/11/29 10:47:00");
         ZonaBasicaSalud zbs60_2 = new ZonaBasicaSalud("001","Abrantes",(float)182.15 ,(float)1014.70013,312,10,"2022/11/29 10:47:00");
         assertNotSame(zbs60_1,zbs60_2);
+    }
+
+    @Test
+    public void ActualizarZBS_DosObjetosActualizaCorrectamente() throws ParseException {
+        ArrayList<ZonaBasicaSalud> listaAux = new ArrayList<>();
+        DataHanding data = new DataHanding();
+        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("005","MArcos",(float)8.25224 ,(float)1314.70013,532,10,"2020/10/01 09:00:00");
+        listaAux.add(zbs1);
+        listaAux.add(zbs2);
+
+        assertNotNull(data.ActualizarZBS(listaAux,"../Covid19-TIA_ZonasBásicasSalud.json"));
+
     }
 }

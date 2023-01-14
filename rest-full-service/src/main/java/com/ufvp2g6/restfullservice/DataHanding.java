@@ -34,9 +34,9 @@ public class DataHanding {
         return aux;
     }
 
-    public ArrayList<ZonaBasicaSalud> ActualizarZBS(ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
+    public ArrayList<ZonaBasicaSalud> ActualizarZBS(ArrayList<ZonaBasicaSalud> ZBS, String ruta) throws ParseException {
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
+        ArrayList<ZonaBasicaSalud> listaAux = reader.LeerFicheroJson1(ruta);
         for(ZonaBasicaSalud i : listaAux){
             if (CompararObjetos(i, ZBS.get(0))){
                 i.setZona_basica_salud(ZBS.get(1).getZona_basica_salud());

@@ -47,7 +47,7 @@ public class ZonaBasicaSaludController {
         //Creamos una clase data handling para poder manipular los datos
         DataHanding dataHanding = new DataHanding();
         //Incluimos los elementos a actualizar
-        ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(ZBS);
+        ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(ZBS,"Covid19-TIA_ZonasBásicasSalud.json");
         //Creamos la clase que nos permita esccribir en el Json
         EscribirJSON escribirJSON = new EscribirJSON();
         //EScribimos en el fichero
