@@ -22,7 +22,7 @@ class RestFullServiceApplicationTests extends TestCase{
 	@Test
 	public void CompararObjetos_DosObjetosIgualesComparacionCorrecta()
 	{
-		//Comprobamos que al pasar dos objetos identicos nos mencione que son iguales
+		//Comprobamos que al pasar dos objetos ZBS identicos nos mencione que son iguales
 		ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
 		ZonaBasicaSalud zbs2 =  new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
 		DataHanding data = new DataHanding();
@@ -42,7 +42,7 @@ class RestFullServiceApplicationTests extends TestCase{
 	@Test
 	public void CompararObjetos_DosObjetosNoIgualesComparacionCorrecta()
 	{
-		//Comprobamos que al pasar dos objetos diferentes nos mencione que son diferentes
+		//Comprobamos que al pasar dos objetos ZBS diferentes nos mencione que son diferentes
 		ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
 		ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("999","Abrantos",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
 		DataHanding data = new DataHanding();
@@ -61,6 +61,7 @@ class RestFullServiceApplicationTests extends TestCase{
 	@Test
 	public void CompararObjetos60_DosObjetosIgualesComparacionCorrecta()
 	{
+		//Comprobamos que dos objetos iguales ZonaBasicaSaludoMayores60 al ser comparados se realice de manera correcta
 		ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
 		ZonaBasicaSaludMayores60 zbs60_2 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5 ,(float)1014.70013,"2022/11/29 10:47:00");
 
@@ -79,6 +80,8 @@ class RestFullServiceApplicationTests extends TestCase{
 	@Test
 	public void CompararObjetos60_DosObjetosNOIgualesComparacionCorrecta()
 	{
+		//Comprobamos que dos objetos diferentes ZonaBasicaSaludoMayores60 al ser comparados se realice de manera incorrecta
+
 		ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
 		ZonaBasicaSaludMayores60 zbs60_2 = new ZonaBasicaSaludMayores60("999","Mark Hamil",(float)182.5 ,(float)1014.70013,"2022/11/29 10:47:00");
 
