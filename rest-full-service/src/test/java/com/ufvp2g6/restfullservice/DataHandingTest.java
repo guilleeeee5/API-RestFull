@@ -139,23 +139,31 @@ public class DataHandingTest
         LeerJson reader = new LeerJson();
         int contador = 0;
 
-        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Lucas",(float)3.25224 ,(float)1219.6377,237,0,"2020/07/01 09:00:00");
-        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("001","Marcos",(float)3.25224 ,(float)1314.70013,532,10,"2020/10/01 09:00:00");
+        ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("002","Acacias",(float)5.1461506 ,(float)1219.6377,237,0,"2020/07/01 09:00:00");
+        ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("002","Marcos",(float)5.1461506 ,(float)1219.6377,237,0,"2020/10/01 09:00:00");
         listaAux.add(zbs1);
         listaAux.add(zbs2);
 
 
 
-        listaAux1 = reader.LeerFicheroJson1("../Covid19-TIA_ZonasBásicasSalud.json");
-        listaAux1 = data.ActualizarZBS(listaAux,"../Covid19-TIA_ZonasBásicasSalud.json");
+        listaAux1 = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
+        listaAux1 = data.ActualizarZBS(listaAux,"Covid19-TIA_ZonasBásicasSalud.json");
 
         for(ZonaBasicaSalud i : listaAux1)
         {
                 if (data.CompararObjetos(i, listaAux.get(1)))
                 {
                     contador = 1;
-                    assertTrue(contador == 1);
                 }
+        }
+
+        if (contador == 1)
+        {
+            assertTrue(contador == 1);
+        }
+        else
+        {
+            fail("No puedo actualizar 2 objetos ZBS que si deberia poder hacer");
         }
 
     }
