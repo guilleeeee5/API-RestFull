@@ -1,5 +1,5 @@
 # Backend Practica 2 DIS
-## Version 0.5, realizada por:
+## Version 1.0, realizada por:
 :bust_in_silhouette: Pedro José Paniagua Falo <br>
 :bust_in_silhouette: Julián Prieto Velasco <br>
 :bust_in_silhouette: Julian Manuel García Baena <br>
@@ -11,3 +11,4 @@
 <br>:white_check_mark: **Version 0.3** :point_right: Actualización API con métodos PUT.
 <br>:white_check_mark: **Version 0.4** :point_right: Actualización API con los métodos POST.
 <br>:white_check_mark: **Version 0.5** :point_right: Actualización API con los test necesarios para comprobar que el mandejo y envío de datos se realiza correctamente.
+<br>:white_check_mark: **Version 1.0** :point_right: Backend funcional al completo respecto a los requisitos especificados en el enunciado de la practica.
