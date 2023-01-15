@@ -250,7 +250,7 @@ public class DataHandingTest
         ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","JuanchoPerez",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
         ZonaBasicaSaludMayores60 zbs60_2 = new ZonaBasicaSaludMayores60("001","Marquinos",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
         listaAux.add(zbs60_1);
-        listaAux.add(zbs60_1);
+        listaAux.add(zbs60_2);
 
 
 
@@ -284,20 +284,29 @@ public class DataHandingTest
         LeerJson reader = new LeerJson();
         int contador = 0;
 
-        listaAux1 = reader.LeerFicheroJson60("../Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
+        listaAux1 = reader.LeerFicheroJson60("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
 
-        ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","JuanchoPerez",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
-        ZonaBasicaSaludMayores60 zbs60_2 =  new ZonaBasicaSaludMayores60(null ,null,0,0,null);
+        ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.15,(float)13,"2022/11/29 10:47:00");
+        ZonaBasicaSaludMayores60 zbs60_2 =  new ZonaBasicaSaludMayores60("001" ,null,(float)182.15,(float)13,"2022/11/29 10:47:00");
 
         listaAux.add(zbs60_1);
-        listaAux.add(zbs60_1);
+        listaAux.add(zbs60_2);
 
         for(ZonaBasicaSaludMayores60 i : listaAux1)
         {
             if (data.CompararObjetos60(i, listaAux.get(1)))
             {
-                assertFalse(contador == 0);
+                contador = 1;
             }
+        }
+
+        if (contador == 0)
+        {
+            assertTrue(contador == 0);
+        }
+        else
+        {
+            fail(" Actualizo 2 objetos ZBS que no deberia actualizar ");
         }
 
     }
