@@ -10,8 +10,6 @@ import java.text.ParseException;
 
 import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
-
 @SpringBootTest
 class RestFullServiceApplicationTests extends TestCase{
 //Out of range, negativos, lectura correcta
@@ -24,18 +22,40 @@ class RestFullServiceApplicationTests extends TestCase{
 	@Test
 	public void CompararObjetos_DosObjetosIgualesComparacionCorrecta()
 	{
+		//Comprobamos que al pasar dos objetos identicos nos mencione que son iguales
 		ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
-		ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
-		assertSame(zbs1,zbs1);
+		ZonaBasicaSalud zbs2 =  new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+		DataHanding data = new DataHanding();
+		int contador = 0;
+
+		if(data.CompararObjetos(zbs1,zbs2) == true)
+		{
+			assertTrue(contador == 0);
+		}
+		else
+		{
+			fail("No comparo correctamente dos objetos iguales");
+		}
+
 	}
 
 	@Test
-	public void CompararObjetos60_DosObjetosNOIgualesComparacionCorrecta()
+	public void CompararObjetos_DosObjetosNoIgualesComparacionCorrecta()
 	{
-		ZonaBasicaSalud zbs60_1 = new ZonaBasicaSalud("002","Abrantes",(float)185.15 ,(float)1214.70013,312,10,"2022/11/29 10:47:00");
-		ZonaBasicaSalud zbs60_2 = new ZonaBasicaSalud("001","Abrantes",(float)182.15 ,(float)1014.70013,312,10,"2022/11/29 10:47:00");
-		assertNotSame(zbs60_1,zbs60_2);
+		//Comprobamos que al pasar dos objetos diferentes nos mencione que son diferentes
+		ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+		ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("999","Abrantos",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+		DataHanding data = new DataHanding();
+		int contador = 0;
 
+		if(data.CompararObjetos(zbs1,zbs2) == false)
+		{
+			assertTrue(contador == 0);
+		}
+		else
+		{
+			fail("No comparo correctamente dos objetos diferentes");
+		}
 	}
 
 //=====================================================================================

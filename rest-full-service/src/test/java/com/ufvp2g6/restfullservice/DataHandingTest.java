@@ -59,7 +59,19 @@ public class DataHandingTest
     {
         //Comprobamos que al pasar dos objetos identicos nos mencione que son iguales
         ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
-        assertSame(zbs1,zbs1);
+        ZonaBasicaSalud zbs2 =  new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
+        DataHanding data = new DataHanding();
+        int contador = 0;
+
+        if(data.CompararObjetos(zbs1,zbs2) == true)
+        {
+            assertTrue(contador == 0);
+        }
+        else
+        {
+            fail("No comparo correctamente dos objetos iguales");
+        }
+
     }
 
     @Test
@@ -68,7 +80,17 @@ public class DataHandingTest
         //Comprobamos que al pasar dos objetos diferentes nos mencione que son diferentes
         ZonaBasicaSalud zbs1 = new ZonaBasicaSalud("001","Abrantes",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
         ZonaBasicaSalud zbs2 = new ZonaBasicaSalud("999","Abrantos",(float)3.25224 ,(float)1014.70013,312,0,"2020/07/01 09:00:00");
-        assertNotSame(zbs1,zbs2);
+        DataHanding data = new DataHanding();
+        int contador = 0;
+
+        if(data.CompararObjetos(zbs1,zbs2) == false)
+        {
+            assertTrue(contador == 0);
+        }
+        else
+        {
+            fail("No comparo correctamente dos objetos diferentes");
+        }
     }
 
     @Test
