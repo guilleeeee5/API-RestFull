@@ -181,17 +181,27 @@ public class DataHandingTest
 
 
 
-        ArrayList<ZonaBasicaSalud> listaAux1 = reader.LeerFicheroJson1("../Covid19-TIA_ZonasBásicasSalud.json");
-        listaAux1 = data.ActualizarZBS(listaAux,"../Covid19-TIA_ZonasBásicasSalud.json");
+        ArrayList<ZonaBasicaSalud> listaAux1 = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
+        listaAux1 = data.ActualizarZBS(listaAux,"Covid19-TIA_ZonasBásicasSalud.json");
 
         for(ZonaBasicaSalud i : listaAux1)
         {
             if (data.CompararObjetos(i, listaAux.get(1)))
             {
-                assertTrue(contador == 0);
+                contador = 1;
             }
 
         }
+        if (contador == 0)
+        {
+            assertTrue(contador == 0);
+        }
+        else
+        {
+            fail("Actualizo 2 objetos ZBS que no deberia poder hacer");
+        }
+
+
 
     }
 
