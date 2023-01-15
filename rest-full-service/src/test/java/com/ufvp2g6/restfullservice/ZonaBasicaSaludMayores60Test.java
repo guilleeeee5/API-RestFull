@@ -28,7 +28,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 
     //En estos test comprobamos que los métodos get para los atributos de la calse de ZonaBasicaSaludMayores60 funcionan como deben
     @Test
-    public void testGetCodigo_geometria() {
+    public void testGetCodigo_geometria60() {
         //En este test comprobamos que el codigo que recibimos del metodo get es igual al esperado
         String resultEsperado = "001";
 
@@ -38,7 +38,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testGetZona_basica_salud() {
+    public void testGetZona_basica_salud60() {
         //En este test comprobamos que la zona que recibimos del metodo get es igual a la esperada
         String resultEsperado = "Abrantes";
 
@@ -48,7 +48,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testGetTasa_incidencia_acumulada_P60mas_ultimos_14dias() {
+    public void testGetTasa_incidencia_acumulada_P60mas_ultimos_14dias60() {
         //En este test comprobamos que la tasa de incidencia que recibimos del metodo get es igual a la esperada
         float resultadoEsperado = (float) 182.15;
 
@@ -58,7 +58,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testGetCasos_confirmados_P60mas_ultimos_14dias() {
+    public void testGetCasos_confirmados_P60mas_ultimos_14dias60() {
         //En este test comprobamos que los casos confimados que recibimos del metodo get es igual a la esperada
         float resultadoEsperado = (float) 13.0;
 
@@ -68,7 +68,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testGetFecha_informe() {
+    public void testGetFecha_informe60() {
         //En este test comprobamos que la fecha que recibimos del metodo get es igual a la esperada
         String resulEsperado = "2022/11/29 10:47:00";
 
@@ -84,7 +84,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
 
     //En estos test comprobamos que los métodos set para los atributos de la calse de ZonaBasicaSaludMayores60 funcionan como deben
     @Test
-    public void testSetCodigo_geometria() {
+    public void testSetCodigo_geometria60() {
         //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
         //es el que hemos puesto
         String codigo_geometriaEsperado = "178";
@@ -99,7 +99,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testSetZona_basica_salud() {
+    public void testSetZona_basica_salud60() {
         //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
         //es el que hemos puesto
         String zonaBasicaSaludEsperada = "Montesa";
@@ -114,7 +114,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testSetTasa_incidencia_acumulada_P60mas_ultimos_14dias() {
+    public void testSetTasa_incidencia_acumulada_P60mas_ultimos_14dias60() {
         //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
         //es el que hemos puesto
         float tasaAcumulada60Esperada = (float) 266.63;
@@ -129,7 +129,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testSetCasos_confirmados_P60mas_ultimos_14dias() {
+    public void testSetCasos_confirmados_P60mas_ultimos_14dias60() {
         //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
         //es el que hemos puesto
         float casosConfirmados60Esperada = (float) 19.0;
@@ -144,7 +144,7 @@ public class ZonaBasicaSaludMayores60Test extends TestCase {
     }
 
     @Test
-    public void testSetFecha_informe() {
+    public void testSetFecha_informe60() {
         //Vamos a crear una variable y vamos a cambiarla en el objeto, después vamos a comprobar que el valor que cogemos
         //es el que hemos puesto
         String fechaInformeEsperada = "2022/11/29 10:47:00";
