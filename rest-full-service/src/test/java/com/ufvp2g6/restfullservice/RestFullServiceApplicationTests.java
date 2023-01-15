@@ -58,6 +58,43 @@ class RestFullServiceApplicationTests extends TestCase{
 		}
 	}
 
+	@Test
+	public void CompararObjetos60_DosObjetosIgualesComparacionCorrecta()
+	{
+		ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
+		ZonaBasicaSaludMayores60 zbs60_2 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5 ,(float)1014.70013,"2022/11/29 10:47:00");
+
+		DataHanding data = new DataHanding();
+		int contador = 0;
+
+		if(data.CompararObjetos60(zbs60_1,zbs60_2) == true)
+		{
+			assertTrue(contador == 0);
+		}
+		else
+		{
+			fail("No comparo correctamente dos objetos iguales de Mayores de 60");
+		}
+	}
+	@Test
+	public void CompararObjetos60_DosObjetosNOIgualesComparacionCorrecta()
+	{
+		ZonaBasicaSaludMayores60 zbs60_1 = new ZonaBasicaSaludMayores60("001","Abrantes",(float)182.5,(float)1014.70013,"2022/11/29 10:47:00");
+		ZonaBasicaSaludMayores60 zbs60_2 = new ZonaBasicaSaludMayores60("999","Mark Hamil",(float)182.5 ,(float)1014.70013,"2022/11/29 10:47:00");
+
+		DataHanding data = new DataHanding();
+		int contador = 0;
+
+		if(data.CompararObjetos60(zbs60_1,zbs60_2) == false)
+		{
+			assertTrue(contador == 0);
+		}
+		else
+		{
+			fail("No comparo correctamente dos objetos diferentes de Mayores de 60");
+		}
+	}
+
 //=====================================================================================
 	//TEST DE MÉTODOS GET ZONA BASICA SALUD
 //=====================================================================================
