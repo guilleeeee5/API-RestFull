@@ -20,7 +20,7 @@ public class ZonaBasicaSaludController {
     public ArrayList<ZonaBasicaSalud> zonas(){
         LeerJson reader = new LeerJson();
         //Leemos el reason e introducimos los elementos en un arraylist
-        ArrayList<ZonaBasicaSalud> lista = reader.LeerFicheroJson1();
+        ArrayList<ZonaBasicaSalud> lista = reader.LeerFicheroJson1("Covid19-TIA_ZonasBásicasSalud.json");
         //Mostramos los elementos leidos
         return lista;
     }
@@ -28,65 +28,57 @@ public class ZonaBasicaSaludController {
     @GetMapping("/ZonaBasicaSaludMayores60")
     public ArrayList<ZonaBasicaSaludMayores60> zonas60(){
         LeerJson reader = new LeerJson();
-        ArrayList<ZonaBasicaSaludMayores60> lista = reader.LeerFicheroJson60();
+        ArrayList<ZonaBasicaSaludMayores60> lista = reader.LeerFicheroJson60("Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         return lista;
     }
-
-    /*@GetMapping("/ZonaBasicaSalud/{codigo_geometria}")
-    public ResponseEntity<ZonaBasicaSalud> getByID(@PathVariable String codigo_geometria){
-           DataHanding dataHanding = new DataHanding();
-           ZonaBasicaSalud zonaBasicaSalud = dataHanding.getZBSinfo(codigo_geometria);
-
-           return new ResponseEntity<>(zonaBasicaSalud, HttpStatus.OK);
-    }*/
 
     //Creamos los métodos GET para acceder a los elementos del JSON en base al elemento codigo_geometria
     @GetMapping("/ZonaBasicaSaludMayores60/{codigo_geometria}")
     public ResponseEntity<ZonaBasicaSaludMayores60> getByIDmayores60(@PathVariable String codigo_geometria){
         //Creamos la clase que nos permita operar los elementos del Json
         DataHanding dataHanding = new DataHanding();
-        ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60 = dataHanding.getZBSM60info(codigo_geometria);
+        ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60 = dataHanding.getZBSM60info(codigo_geometria,"Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         return new ResponseEntity<>(zonaBasicaSaludMayores60, HttpStatus.OK);
     }
 
-    //Cremos los métodos PUT para actualzar los elementos de los Json
+    //Creamos el metodo PUT, en este actualizamos la base de datos con el objeto editado que nos pasa el usuario desde el front
     @PutMapping("/ZonaBasicaSalud")
     public ArrayList<ZonaBasicaSalud> actualizar(@RequestBody ArrayList<ZonaBasicaSalud> ZBS) throws ParseException {
         //Creamos una clase data handling para poder manipular los datos
         DataHanding dataHanding = new DataHanding();
         //Incluimos los elementos a actualizar
-        ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(ZBS);
+        ArrayList<ZonaBasicaSalud> lista = dataHanding.ActualizarZBS(ZBS,"Covid19-TIA_ZonasBásicasSalud.json");
         //Creamos la clase que nos permita esccribir en el Json
         EscribirJSON escribirJSON = new EscribirJSON();
         //EScribimos en el fichero
         escribirJSON.escribirZBS(lista);
         return lista;
     }
-
+    //Creamos el metodo PUT, en este actualizamos la base de datos con el objeto editado que nos pasa el usuario desde el front
     @PutMapping("/ZonaBasicaSaludMayores60")
     public ArrayList<ZonaBasicaSaludMayores60> actualizar60(@RequestBody ArrayList<ZonaBasicaSaludMayores60> ZBS) throws ParseException {
         DataHanding dataHanding = new DataHanding();
-        ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(ZBS);
+        ArrayList<ZonaBasicaSaludMayores60> lista = dataHanding.ActualizarZBS60(ZBS,"Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         EscribirJSON escribirJSON = new EscribirJSON();
         escribirJSON.escribirZBSMas60(lista);
         return lista;
     }
-
+    //Creamos el metodo POST, en este actualizamos la base de datos con el objeto nuevo que nos pasa el usuario desde el front
     @PostMapping("/ZonaBasicaSalud")
     public ArrayList<ZonaBasicaSalud> create(@RequestBody ZonaBasicaSalud zonaBasicaSalud){
         DataHanding dataHanding = new DataHanding();
         ArrayList<ZonaBasicaSalud> lista;
-        lista = dataHanding.AnadirZBS(zonaBasicaSalud);
+        lista = dataHanding.AnadirZBS(zonaBasicaSalud,"Covid19-TIA_ZonasBásicasSalud.json");
         EscribirJSON escribirJSON = new EscribirJSON();
         escribirJSON.escribirZBS(lista);
         return lista;
     }
-
+    //Creamos el metodo POST, en este actualizamos la base de datos con el objeto nuevo que nos pasa el usuario desde el front
     @PostMapping("/ZonaBasicaSaludMayores60")
     public ArrayList<ZonaBasicaSaludMayores60> create(@RequestBody ZonaBasicaSaludMayores60 zonaBasicaSaludMayores60){
         DataHanding dataHanding = new DataHanding();
         ArrayList<ZonaBasicaSaludMayores60> lista;
-        lista = dataHanding.AnadirZBSMas60(zonaBasicaSaludMayores60);
+        lista = dataHanding.AnadirZBSMas60(zonaBasicaSaludMayores60,"Covid19-TIA_ZonasBásicasSalud_Mayores60.json");
         EscribirJSON escribirJSON = new EscribirJSON();
         escribirJSON.escribirZBSMas60(lista);
         return lista;

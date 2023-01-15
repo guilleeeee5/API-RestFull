@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ufvp2g6</groupId>
 	<artifactId>rest-full-service</artifactId>
-	<version>0.4</version>
+	<version>0.5</version>
 	<name>rest-full-service</name>
 	<description>Practica 2 </description>
 	<properties>
@@ -33,7 +33,12 @@
 			<artifactId>gson</artifactId>
 			<version>2.6.2</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
